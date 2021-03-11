@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" focusTraversable="true" maxHeight="700" maxWidth="700" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" opacity="0.88" prefHeight="586.0" prefWidth="557.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.clubfootballgui.JoueursguiController">
+   <children>
+      <Button fx:id="ajoutjr" layoutX="340.0" layoutY="81.0" mnemonicParsing="false" onAction="#ajoutjrs" prefHeight="26.0" prefWidth="106.0" text="Ajouter" />
+      <Button fx:id="mdfjr" layoutX="340.0" layoutY="131.0" mnemonicParsing="false" onAction="#mdfjrs" prefHeight="26.0" prefWidth="106.0" text="Modifier" />
+      <Button fx:id="suppjr" layoutX="340.0" layoutY="181.0" mnemonicParsing="false" onAction="#suppjrs" onMouseClicked="#suppjrs" prefHeight="26.0" prefWidth="106.0" text="Supprimer" />
+      <Button fx:id="retourner" layoutX="340.0" layoutY="281.0" mnemonicParsing="false" onAction="#retour" prefHeight="26.0" prefWidth="106.0" text="Quitté" />
+      <Label layoutX="33.0" layoutY="85.0" text="ID :" textFill="#5946ea">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font></Label>
+      <Label layoutX="32.0" layoutY="134.0" text="Nom :" textFill="#5946ea">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="27.0" layoutY="183.0" text="Prenom :" textFill="#5946ea">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="28.0" layoutY="234.0" text="Age :" textFill="#5946ea">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="32.0" layoutY="286.0" text="Club :" textFill="#5946ea">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font></Label>
+      <TextField fx:id="idj" layoutX="102.0" layoutY="81.0" />
+      <TextField fx:id="nomj" layoutX="102.0" layoutY="132.0" />
+      <TextField fx:id="prenomj" layoutX="102.0" layoutY="182.0" />
+      <TextField fx:id="agej" layoutX="102.0" layoutY="232.0" />
+      <TextField fx:id="clubj" layoutX="102.0" layoutY="282.0" />
+      <Label layoutX="182.0" layoutY="14.0" text="Gérer les joueurs" textAlignment="CENTER" textFill="#2a2eac" textOverrun="CLIP" underline="true">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="27.0" />
+         </font>
+      </Label>
+      <Button fx:id="afficherbd" layoutX="340.0" layoutY="231.0" mnemonicParsing="false" onAction="#affichebd" prefHeight="26.0" prefWidth="106.0" text="Afficher" />
+      <TableView fx:id="tvjoueurs" editable="true" layoutX="14.0" layoutY="336.0" opacity="0.93" prefHeight="219.0" prefWidth="532.0" visible="false">
+         <columns>
+            <TableColumn fx:id="jid" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="jnom" prefWidth="124.79999542236328" text="Nom" />
+            <TableColumn fx:id="jpren" prefWidth="123.20001220703125" text="Prenom" />
+            <TableColumn fx:id="jage" prefWidth="96.79998779296875" text="Age" />
+            <TableColumn fx:id="jclub" prefWidth="111.19998168945312" text="Club" />
+         </columns>
+      </TableView>
+   </children>
+   <effect>
+      <ColorAdjust contrast="0.06" />
+   </effect>
+</AnchorPane>

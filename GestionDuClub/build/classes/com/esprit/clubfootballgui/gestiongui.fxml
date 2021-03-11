@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="241.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.clubfootballgui.GestionguiController">
+   <children>
+      <ImageView fx:id="img" fitHeight="267.0" fitWidth="601.0" layoutX="-1.0" layoutY="-1.0" nodeOrientation="INHERIT" opacity="0.7" pickOnBounds="true">
+         <image>
+            <Image url="@background.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnjrs" layoutX="14.0" layoutY="156.0" mnemonicParsing="false" onAction="#ListeJoueurs" prefHeight="26.0" prefWidth="128.0" text="Joueurs" />
+      <Button fx:id="btnclub" layoutX="237.0" layoutY="156.0" mnemonicParsing="false" onAction="#ListeClubs" prefHeight="26.0" prefWidth="128.0" text="Clubs" />
+      <Button fx:id="btncomp" layoutX="459.0" layoutY="156.0" mnemonicParsing="false" onAction="#Competitions" prefHeight="26.0" prefWidth="128.0" text="Competitions" />
+      <Label layoutX="152.0" layoutY="25.0" text="Services des clubs" textFill="#000bdf">
+         <font>
+            <Font name="Arial" size="40.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
