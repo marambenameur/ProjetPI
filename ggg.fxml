@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1">
+ <children>
+      <AnchorPane opacity="0.41" prefHeight="290.0" prefWidth="795.0" style="-fx-background-color: black;">
+         <effect>
+            <InnerShadow choke="0.51" />
+         </effect>
+      </AnchorPane>
+      <ImageView fitHeight="301.0" fitWidth="808.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/parallax.jpg" />
+         </image>
+         <effect>
+            <InnerShadow choke="0.51" height="1.0" radius="0.0" width="0.0" />
+         </effect>
+      </ImageView>
+      <SplitPane layoutX="-5.0" layoutY="169.0" prefHeight="440.0" prefWidth="548.0">
+         <items>
+            <TableView fx:id="tabv" prefHeight="400.0" prefWidth="463.0">
+              <columns>
+                  <TableColumn fx:id="description" prefWidth="73.0" text="Description" />
+                  <TableColumn fx:id="localitsation_velo" prefWidth="83.0" text="localitsation_velo" />
+                  <TableColumn fx:id="quantity" prefWidth="77.0" text="Quantity" />
+                  <TableColumn fx:id="price_location" prefWidth="126.0" text="price_location" />
+                  <TableColumn fx:id="date_circulation" prefWidth="88.0" text="date circulation" />
+                  <TableColumn fx:id="categories" prefWidth="102.0" text="categories" />
+              </columns>
+               <effect>
+                  <InnerShadow choke="0.51" color="#0000004e">
+                     <input>
+                        <DropShadow />
+                     </input>
+                  </InnerShadow>
+               </effect>
+            </TableView>
+         </items>
+      </SplitPane>
+      <AnchorPane layoutX="561.0" layoutY="319.0" prefHeight="259.0" prefWidth="219.0" style="-fx-background-color: #c0c0c0;">
+         <children>
+            <Button layoutX="26.0" layoutY="28.0" mnemonicParsing="false"  prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #274f7d;" text="Add a Bike" textFill="WHITE">
+               <effect>
+                  <InnerShadow />
+               </effect>
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="37.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons8-plus-30.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="27.0" layoutY="99.0" mnemonicParsing="false"  opacity="0.83" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #6f6f6f;" text="Modifiy a Bike" textFill="WHITE">
+               <effect>
+                  <InnerShadow height="10.5" radius="2.125" width="0.0" />
+               </effect>
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Button layoutX="28.0" layoutY="164.0" mnemonicParsing="false"  prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #c0453d;" text="Delete a bike" textFill="WHITE">
+               <effect>
+                  <InnerShadow />
+               </effect>
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons8-supprimer-pour-toujours-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+     
+      <Label layoutX="628.0" layoutY="203.0" prefHeight="39.0" prefWidth="195.0" text="Search" textFill="#961a1a">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="51.0" fitWidth="92.0" layoutX="577.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/loupe.png" />
+         </image>
+      </ImageView>
+   </children>
+   <effect>
+      <InnerShadow />
+   </effect>
+</AnchorPane>
