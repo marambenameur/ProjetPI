@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.TableViewAdminController">
+   <children>
+      <AnchorPane layoutX="93.0" layoutY="237.0" prefHeight="64.0" prefWidth="80.0" />
+      <ImageView fitHeight="66.0" fitWidth="72.0" layoutX="97.0" layoutY="236.0" onMouseClicked="#ToGestionAdmin" smooth="false">
+         <image>
+            <Image url="@../image/adminGestion.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="214.0" layoutY="237.0" prefHeight="64.0" prefWidth="80.0">
+         <children>
+            <ImageView fitHeight="72.0" fitWidth="80.0" onMouseClicked="#ToGestionClient">
+               <image>
+                  <Image url="@../image/Client.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="322.0" layoutY="233.0" prefHeight="66.0" prefWidth="101.0">
+         <children>
+            <ImageView fitHeight="72.0" fitWidth="80.0" layoutX="14.0">
+               <image>
+                  <Image url="@../image/Adherant.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="471.0" layoutY="237.0" prefHeight="64.0" prefWidth="80.0">
+         <children>
+            <ImageView fitHeight="64.0" fitWidth="80.0" layoutY="3.0">
+               <image>
+                  <Image url="@../image/terrain.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="580.0" layoutY="237.0" prefHeight="64.0" prefWidth="80.0">
+         <children>
+            <ImageView fitHeight="64.0" fitWidth="94.0">
+               <image>
+                  <Image url="@../image/club.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="688.0" layoutY="237.0" prefHeight="64.0" prefWidth="80.0">
+         <children>
+            <ImageView fitHeight="71.0" fitWidth="92.0">
+               <image>
+                  <Image url="@../image/Store.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="818.0" layoutY="237.0" prefHeight="64.0" prefWidth="80.0">
+         <children>
+            <ImageView fitHeight="72.0" fitWidth="93.0" layoutY="-1.0">
+               <image>
+                  <Image url="@../image/event.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label layoutX="254.0" layoutY="53.0" prefHeight="69.0" prefWidth="515.0" text="Menu Admin" textAlignment="RIGHT" textFill="#f80b0b">
+         <font>
+            <Font name="Engravers MT" size="57.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="93.0" layoutY="147.0" prefHeight="64.0" prefWidth="80.0">
+         <children>
+            <ImageView fitHeight="56.0" fitWidth="59.0" layoutX="11.0" layoutY="4.0">
+               <image>
+                  <Image url="@../image/Gestion.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label layoutX="174.0" layoutY="164.0" prefHeight="31.0" prefWidth="80.0" text="Gestion" textFill="#f50202">
+         <font>
+            <Font name="MT Extra" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="101.0" layoutY="323.0" onContextMenuRequested="#ToGestionAdmin" prefHeight="31.0" prefWidth="65.0" text="Admin" />
+      <Label layoutX="225.0" layoutY="323.0" onMouseClicked="#ToGestionClient" prefHeight="31.0" prefWidth="59.0" text="Client" />
+      <Label layoutX="330.0" layoutY="315.0" prefHeight="38.0" prefWidth="65.0" text="Adhérant" />
+      <Label layoutX="482.0" layoutY="319.0" prefHeight="31.0" prefWidth="59.0" text="Terrain" />
+      <Label layoutX="609.0" layoutY="319.0" prefHeight="31.0" prefWidth="65.0" text="Club" />
+      <Label layoutX="702.0" layoutY="319.0" prefHeight="31.0" prefWidth="65.0" text="Store" />
+      <Label layoutX="835.0" layoutY="319.0" prefHeight="31.0" prefWidth="59.0" text="Event" />
+   </children>
+</AnchorPane>
