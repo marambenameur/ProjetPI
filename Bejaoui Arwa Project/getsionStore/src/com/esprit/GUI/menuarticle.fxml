@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.GUI.MenuarticleController">
+   <children>
+      <ImageView fitHeight="527.0" fitWidth="701.0" layoutX="-3.0" layoutY="-3.0">
+         <image>
+            <Image url="@../../../imagedesk/backgrd.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="142.0" fitWidth="236.0" layoutX="-67.0" layoutY="-15.0">
+         <image>
+            <Image url="@../../../imagedesk/151649564_3621122697965565_6360406548317539334_n.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="lib" layoutX="109.0" layoutY="60.0" prefHeight="25.0" prefWidth="250.0" promptText="Search" />
+      <ImageView fitHeight="25.0" fitWidth="18.0" layoutX="339.0" layoutY="60.0">
+         <image>
+            <Image url="@../../../imagedesk/search--v2.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tab_art" layoutX="26.0" layoutY="102.0" prefHeight="371.0" prefWidth="645.0">
+        <columns>
+          <TableColumn fx:id="col_ref" prefWidth="86.0" text="Référence" />
+          <TableColumn fx:id="col_lib" prefWidth="288.0" text="Libelle" />
+            <TableColumn fx:id="col_cat" prefWidth="114.0" text="Catégorie" />
+            <TableColumn fx:id="col_qt" prefWidth="73.0" text="Quantités" />
+            <TableColumn fx:id="col_prix" prefWidth="83.0" text="Prix" />
+        </columns>
+      </TableView>
+      <Button fx:id="consultart" layoutX="247.0" layoutY="485.0" mnemonicParsing="false" onAction="#consulterarticle" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #2080df;" text="Consulter" textFill="#f8f8f8">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="ajoutart" layoutX="352.0" layoutY="485.0" mnemonicParsing="false" onAction="#ajouterarticle" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #2080df;" text="Ajouter" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="modifart" layoutX="458.0" layoutY="485.0" mnemonicParsing="false" onAction="#modifierarticle" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #2080df;" text="Modifier" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="suppart" layoutX="561.0" layoutY="485.0" mnemonicParsing="false" onAction="#supprimeraticle" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #2080df;" text="Supprimer" textFill="#f8f8f8">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="rechart" layoutX="336.0" layoutY="60.0" mnemonicParsing="false" onAction="#rechercherarticle" opacity="0.0" prefHeight="25.0" prefWidth="24.0" />
+      <Button fx:id="retourne" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#retourne" opacity="0.0" prefHeight="66.0" prefWidth="63.0" />
+      <ImageView fitHeight="25.0" fitWidth="32.0" layoutX="603.0" layoutY="68.0">
+         <image>
+            <Image url="@../../../imagedesk/refresh.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="refresh_article" layoutX="607.0" layoutY="70.0" mnemonicParsing="false" onAction="#afficherarticle" opacity="0.0" prefHeight="25.0" prefWidth="24.0" />
+      <ImageView fitHeight="33.0" fitWidth="18.0" layoutX="636.0" layoutY="64.0">
+         <image>
+            <Image url="@../../../imagedesk/sort-down.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="triprix" layoutX="636.0" layoutY="66.0" mnemonicParsing="false" onAction="#trierarticleprix" opacity="0.0" prefHeight="25.0" prefWidth="18.0" />
+   </children>
+</AnchorPane>
