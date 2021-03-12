@@ -25,19 +25,19 @@ import java.util.logging.Logger;
  *
  * @author ABS1
  */
-public class ServiceEquipe implements IService2<Equipe>{
+public class ServiceEquipe implements IService<Equipe>{
     
     
     Connection cnx = DataSource.getInstance().getCnx();
     @Override
      public void ajouter(Equipe e) {
         try {
-            String requete = "INSERT INTO equipe (idequipe,nom,nombre) VALUES (?,?,?)";
+            String requete = "INSERT INTO equipe (nom,nombre) VALUES (?,?)";
             PreparedStatement pst = cnx.prepareStatement(requete);
             
-            pst.setInt(1,e.getIdequipe());
-            pst.setString(2,e.getNom());
-            pst.setInt(3,e.getNombre());
+          
+            pst.setString(1,e.getNom());
+            pst.setInt(2,e.getNombre());
             pst.executeUpdate();
             System.out.println("equipe ajoutée !");
 
@@ -45,6 +45,7 @@ public class ServiceEquipe implements IService2<Equipe>{
             System.err.println(ex.getMessage());
         }
     }
+     @Override
      public void supprimer(Equipe e) {
         try {
             String requete = "DELETE FROM equipe WHERE idequipe=?";
@@ -58,6 +59,7 @@ public class ServiceEquipe implements IService2<Equipe>{
         }
         
     }
+     @Override
        public List<Equipe> afficher() {
         List<Equipe> list = new ArrayList<>();
 
@@ -75,6 +77,7 @@ public class ServiceEquipe implements IService2<Equipe>{
 
         return list;
     }
+       @Override
         public void modifier(Equipe e)  {
         try{
         Statement stm = cnx.createStatement();
@@ -108,7 +111,7 @@ public class ServiceEquipe implements IService2<Equipe>{
     }
     public Equipe getId(int idequipe) throws SQLException {
         Equipe e = null;
-        String req = "SELECT * FROM equipe WHERE idequipe= '" + idequipe + "'";
+        String req = "SELECT * FROM equipe WHERE nombre= '" + idequipe + "'";
         Statement stm = cnx.createStatement();
         ResultSet rs = stm.executeQuery(req);
         while (rs.next()) {

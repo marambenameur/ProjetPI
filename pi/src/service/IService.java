@@ -12,10 +12,10 @@ import java.util.List;
  *
  * @author ABS1
  */
-public interface IService <D>{
-     public void ajouter(D Demande);
-    public void supprimer(D Demande);
-    public void modifier(D Demande);
-   public List<D> afficher();
+public interface IService <T>{
+     public void ajouter(T t);
+    public void supprimer(T t);
+    public void modifier(T t);
+   public List<T> afficher();
     
 }

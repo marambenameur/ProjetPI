@@ -21,6 +21,10 @@ public class Equipe {
         this.nombre = nombre;
     }
 
+    public Equipe(int idequipe) {
+        this.idequipe = idequipe;
+    }
+
     public Equipe(String nom, int nombre) {
         this.nom = nom;
         this.nombre = nombre;

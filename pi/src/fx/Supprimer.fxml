@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.SupprimerController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="607.0" layoutX="-1.0" layoutY="1.0" opacity="0.52">
+         <image>
+            <Image url="@../../../../../Desktop/158939847_1402282076809238_6712331903416729902_n.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="166.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supprimer Demande">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Text>
+      <Text layoutX="62.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id Demande">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <TextField fx:id="id" layoutX="278.0" layoutY="155.0" prefHeight="25.0" prefWidth="181.0" />
+      <Button fx:id="supprimer" layoutX="423.0" layoutY="313.0" mnemonicParsing="false" onAction="#Supprimer" text="Supprimer" />
+   </children>
+</AnchorPane>

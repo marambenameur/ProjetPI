@@ -25,7 +25,7 @@ public class ServiceDemande implements IService<Demande>  {
     
     Connection cnx = DataSource.getInstance().getCnx();
 
-  
+  @Override
     public void ajouter(Demande d) {
         try {
             String requete = "INSERT INTO demande (date,idterrain,idequipe) VALUES (?,?,?)";
@@ -42,7 +42,7 @@ public class ServiceDemande implements IService<Demande>  {
         }
     }
         
-  
+  @Override
          public void supprimer(Demande d) {
         try {
             String requete = "DELETE FROM demande WHERE id=?";
@@ -55,7 +55,7 @@ public class ServiceDemande implements IService<Demande>  {
             System.err.println(ex.getMessage());
         }
     }
-        
+        @Override
           public List<Demande> afficher() {
         List<Demande> list = new ArrayList<>();
 

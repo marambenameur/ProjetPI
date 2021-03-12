@@ -24,6 +24,14 @@ public class Demande {
         
     }
 
+    public Demande(int id) {
+        this.id = id;
+    }
+    
+
+    public Demande() {
+    }
+
     public Demande(int id, int idterrain, int idequipe) {
         this.id = id;
         this.idterrain = idterrain;
