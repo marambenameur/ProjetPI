@@ -9,6 +9,7 @@ import com.esprit.models.Categorie;
 import com.esprit.models.Event;
 import com.esprit.services.ServiceCategorie;
 import com.esprit.services.ServiceEvent;
+import java.awt.AWTException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -29,6 +30,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.Scene;
+
+
 import javafx.stage.Stage;
 
 /**
@@ -66,6 +69,8 @@ public class AddEventController implements Initializable {
     private ComboBox<?> cbCategories;
     @FXML
     private Label Categories;
+      @FXML
+   private ComboBox<Categorie>cat;
 
     /**
      * Initializes the controller class.
@@ -74,19 +79,16 @@ public class AddEventController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
          ArrayList<Categorie> lesCategories= new ArrayList<>();
         ServiceCategorie cs = new ServiceCategorie();
-     try {
-         lesCategories=cs.getAllCategorie();
-     } catch (SQLException ex) {
-         //Logger.getLogger(AddEventController.class.getName()).log(Level.SEVERE, null, ex);
-     }
-        ObservableList obs = FXCollections.observableArrayList(lesCategories);
-        cbCategories.setItems(obs);
-        
-       
-    }    
+ObservableList<Categorie>data=FXCollections.observableArrayList();
+   
+   data.addAll(cs.readNom());
+   data.toString();
+       cat.setItems(data);
+     
+    }
          
     @FXML
-    private void Save(ActionEvent event) throws SQLException, IOException {
+    private void Save(ActionEvent event) throws SQLException, IOException, AWTException {
         if ( dpDate_event.getEditor().getText().length() == 0 || tfPrice.getText().length() == 0 || tfNom.getText().length() == 0 || tfLieu_event.getText().length() == 0 ||  taDescription.getText().length() == 0)
         {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -145,12 +147,16 @@ public class AddEventController implements Initializable {
             alert3.setContentText("le champ est vide");
             alert3.showAndWait();  
             }
-        else{
+        else{ 
+                Categorie  combo =cat.getValue();
+               System.out.println(combo);
             ServiceEvent se = new ServiceEvent();
-            double tfprix = Double.parseDouble(tfPrice.getText());
-            se.Ajouter(new Event(tfNom.getText(), Date.valueOf(dpDate_event.getValue()), taDescription.getText(), tfLieu_event.getText(),tfprix));
+            String tfprix = tfPrice.getText();
+             se.Ajouter(tfNom.getText(),Date.valueOf(dpDate_event.getValue()), taDescription.getText(),tfLieu_event.getText(),Double.parseDouble(tfprix),combo);
+
             //Event ev= new Event(1,  cbCategories.getValue().getId(), tfNom.getText(), Date.valueOf(dpDate_event.getValue()), taDescription.getText(), tfLieu_event.getText(),Double.valueOf(tfPrice.getText()),Integer.parseInt(tfNbr_participant.getText()) );
-            System.out.println("ok");
+            System.out.println("ok"); 
+            
             
 //          try {
 //                      ServiceEvent   es= new ServiceEvent();
@@ -170,7 +176,8 @@ public class AddEventController implements Initializable {
   
 Stage stage = new Stage();
 stage.setScene(new Scene(pane));
-stage.show();     
+stage.show();      
+
         }
     }
     

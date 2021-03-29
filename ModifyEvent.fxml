@@ -39,17 +39,14 @@
              <TextField fx:id="tfnNom" layoutX="224.0" layoutY="198.0" />
             <Label fx:id="Description" layoutX="35.0" layoutY="175.0" prefHeight="18.0" prefWidth="133.0" text="Description" />
             <Label fx:id="Lieu_event" layoutX="460.0" layoutY="57.0" prefHeight="18.0" prefWidth="106.0" text="Lieu_event" />
-            <VBox layoutX="3.0" layoutY="255.0" prefHeight="55.0" prefWidth="166.0">
-               <children>
-                  <Label fx:id="Categories" prefHeight="44.0" prefWidth="85.0" text="Catgeories" />
-               </children>
-            </VBox>
+            <VBox layoutX="3.0" layoutY="255.0" prefHeight="55.0" prefWidth="166.0" />
             <Button fx:id="btnModifiyE" layoutX="464.0" layoutY="266.0" mnemonicParsing="false" onAction="#Modifiy" prefHeight="55.0" prefWidth="106.0" style="-fx-background-color: #274f7d;" text="Modifiy">
                <effect>
                   <InnerShadow height="0.0" radius="0.9824999999999999" width="5.93" />
                </effect>
             </Button>
             <ComboBox fx:id="cbCategories" layoutX="11.0" layoutY="299.0" prefWidth="150.0" />
+            <Label fx:id="Categories" layoutX="40.0" layoutY="288.0" prefHeight="44.0" prefWidth="85.0" text="Catgeories" />
          </children>
       </AnchorPane>
    </children>

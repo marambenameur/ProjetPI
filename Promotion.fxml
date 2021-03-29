@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="613.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PromotionController">
+        <children>
+      <AnchorPane opacity="0.41" prefHeight="290.0" prefWidth="795.0" style="-fx-background-color: black;">
+         <effect>
+            <InnerShadow choke="0.51" />
+         </effect>
+         <children>
+            <TextField fx:id="recherche" layoutX="587.0" layoutY="259.0" prefHeight="17.0" prefWidth="187.0" />
+         </children>
+      </AnchorPane>
+      <SplitPane layoutX="-1.0" layoutY="249.0" prefHeight="271.0" prefWidth="551.0" AnchorPane.topAnchor="249.0">
+         <items>
+            <TableView fx:id="tvPromo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="355.0" prefWidth="552.0">
+              <columns>
+                <TableColumn fx:id="pourcentage" prefWidth="195.0" text="pourcentage" />
+                <TableColumn fx:id="date_debut" prefWidth="166.0" text="date_debut" />
+                <TableColumn fx:id="date_fin" prefWidth="191.0" text="date_fin" />
+              </columns>
+               <effect>
+                  <InnerShadow choke="0.51" color="#0000004e">
+                     <input>
+                        <DropShadow />
+                     </input>
+                  </InnerShadow>
+               </effect>
+            </TableView>
+         </items>
+      </SplitPane>
+      <AnchorPane layoutX="557.0" layoutY="298.0" prefHeight="317.0" prefWidth="226.0" style="-fx-background-color: #c0c0c0;">
+         <children>
+            <Button fx:id="add" layoutX="24.0" layoutY="22.0" mnemonicParsing="false" onAction="#ajouterEventAction" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #274f7d;" text="Add Promotion" textFill="WHITE">
+               <effect>
+                  <InnerShadow />
+               </effect>
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="Modifiy" layoutX="22.0" layoutY="95.0" mnemonicParsing="false" onAction="#modifierEventAction" opacity="0.83" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #6f6f6f;" text="Modifiy promotion" textFill="WHITE">
+               <effect>
+                  <InnerShadow height="10.5" radius="2.125" width="0.0" />
+               </effect>
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="remove" layoutX="24.0" layoutY="159.0" mnemonicParsing="false" onAction="#SupprimerEventAction" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #c0453d;" text="Delete promotion" textFill="WHITE">
+               <effect>
+                  <InnerShadow />
+               </effect>
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="add1" layoutX="24.0" layoutY="221.0" mnemonicParsing="false" onAction="#EnvoyerMailAction" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #274f7d;" text="Envoyer Mail" textFill="WHITE">
+               <effect>
+                  <InnerShadow />
+               </effect>
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+      
+             
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+      <Label fx:id="fx_recherche" layoutX="652.0" layoutY="227.0" prefHeight="28.0" prefWidth="149.0" text="Search" textFill="#961a1a">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+   </children>
+   <effect>
+      <InnerShadow />
+   </effect>
+   
+</AnchorPane>

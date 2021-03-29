@@ -47,6 +47,7 @@ import javafx.scene.Scene;
 
 import javafx.stage.Stage;
 import java.sql.Date;
+import java.util.ArrayList;
 
 /**
  * FXML Controller class
@@ -58,8 +59,7 @@ public class ModifyEventController implements Initializable {
  ObservableList<String> options=FXCollections.observableArrayList();
     @FXML
      Button btnModifiyE;
-    @FXML
-     Button btnPhoto;
+    Button btnPhoto;
     @FXML
      DatePicker dpnDate_event;
     @FXML
@@ -68,16 +68,13 @@ public class ModifyEventController implements Initializable {
      TextField tfnNom;
     @FXML
      TextField tfnLieu_event;
-    @FXML
-     TextField tfnNbr_participant;
+    TextField tfnNbr_participant;
     @FXML
      TextArea tanDescription;
-    @FXML
-     Label Nbr_participant;
+    Label Nbr_participant;
     @FXML
      Label Categories;
-    @FXML
-     Label Photo;
+    Label Photo;
     @FXML
      Label Lieu_event;
     @FXML
@@ -92,71 +89,93 @@ public class ModifyEventController implements Initializable {
     @FXML
     private AnchorPane anchorPane;
     
-    @FXML
-     private ComboBox<Categorie> cbnCategories;
     Event e;
+
     Event ev = new Event();
+    @FXML
+    private ComboBox<String> cbCategories;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
+                   ArrayList<Categorie> lesCategories= new ArrayList<>();
+        ServiceCategorie cs1 = new ServiceCategorie();
+                try {
+                    lesCategories= cs1.getAllCategorie();
+                        ArrayList<String> list=new ArrayList<>();
+      for(Categorie i : lesCategories)
+                {
+                 list.add(i.getType());
+                }
+      
+      
+ObservableList<String>data=FXCollections.observableArrayList(list);
+     cbCategories.setItems(data);
+                } catch (SQLException ex) {
+                    Logger.getLogger(ModifyEventController.class.getName()).log(Level.SEVERE, null, ex);
+                    
+                }
+  
+  
+
+
         //cbnCategories.setItems(options);
-        Platform.runLater(()->{
-            System.out.println(e);
-
-             dpnDate_event.getEditor().setText(String.valueOf(e.getDate_event()));
-                                        tfnPrice.setText(String.valueOf(e.getPrix()));
-
-             System.out.println(e.getDate_event());
-               tfnNom.setText(e.getNom());
-               tfnLieu_event.setText(e.getLieu_event());
-               tanDescription.setText(e.getDescription());
-               ServiceCategorie cs = new ServiceCategorie();
-            try {
-                cbnCategories.setValue(cs.getCategorieById(e.getCategories_id()));
-            } catch (SQLException ex) {
-                Logger.getLogger(ModifyEventController.class.getName()).log(Level.SEVERE, null, ex);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(e);
+          
+     
+                dpnDate_event.getEditor().setText(String.valueOf(e.getDate_event()));
+                tfnPrice.setText(String.valueOf(e.getPrix()));
+                
+                System.out.println(e.getDate_event());
+                tfnNom.setText(e.getNom());
+                tfnLieu_event.setText(e.getLieu_event());
+                tanDescription.setText(e.getDescription());
+                
+                ServiceCategorie cs = new ServiceCategorie();
+                /*Categorie  combo =cat.getValue();
+                es.update(t,combo);
+                cbnCategories.setValue(cs.getCategorieById(e.getCategorie_id()));
+                {
+                    Logger.getLogger(ModifyEventController.class.getName()).log(Level.SEVERE, null, ex);
+                }*/
             }
-             
-    });    
+        });    
     }
     
     @FXML
     private void Modifiy(ActionEvent event) throws SQLException, IOException {
         
-        if (ev == null) {
-
-            System.out.println("choisir un evenement");
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Modify event");
-            alert.setHeaderText(null);
-            alert.setContentText("the event is not modified !");
-
-            alert.showAndWait();
-        }else {
-                                String datePu=dpnDate_event.getValue().toString();
-ev.setDate_event(java.sql.Date.valueOf(datePu));
-
-            ev.setPrix(Double.valueOf(tfnPrice.getText()));
+     
+            
+String datePu=dpnDate_event.getValue().toString();
+ev.setDate_event(Date.valueOf(datePu));
+   ServiceCategorie cs1 = new ServiceCategorie();
+ ev.setPrix(Double.valueOf(tfnPrice.getText()));
             ev.setNom(tfnNom.getText());
             ev.setLieu_event(tfnLieu_event.getText());
             ev.setDescription(tanDescription.getText());
-
+            ev.setCategories_id(cs1.getCategorieByType(this.cbCategories.getSelectionModel().getSelectedItem()));
+            
+            
+  System.out.println("123"+ev);
             
                       
 
             //a mmodifier !!!!
-            ev.setCategories_id(1);
+            //ev.setCategories_id();
             try {
 
                ServiceEvent es = new ServiceEvent();
                 System.out.println("azaz.............");
+                es.update(ev,cs1.getCategorieByType(this.cbCategories.getSelectionModel().getSelectedItem()));
 
                 System.out.println(ev.toString());
-               es.Modifier(ev);
+               //es.update(t,combo);
                AnchorPane pane   = FXMLLoader.load(getClass().getResource("Event.fxml"));
   
 Stage stage = new Stage();
@@ -179,7 +198,7 @@ stage.show();
         alert.setHeaderText(null);
 //        alert.setContentText("L'evenement " + e.getNom() + " has been modified.");
         alert.showAndWait();
-        }
+        
     }
    
     

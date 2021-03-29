@@ -28,7 +28,7 @@ public class main extends Application {
 //            primaryStage.setTitle("Hello World");
 //            primaryStage.setScene(scene);
 //            primaryStage.show();
-     FXMLLoader loader = new FXMLLoader(getClass().getResource("../Admin/AfficherCategories.fxml"));
+     FXMLLoader loader = new FXMLLoader(getClass().getResource("Promotion.fxml"));
      Parent root = loader.load();
         Scene scene = new Scene(root);
         primaryStage.setTitle("Hello World");

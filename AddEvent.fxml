@@ -33,7 +33,7 @@
                         <InnerShadow height="0.0" radius="0.9824999999999999" width="5.93" />
                      </effect>
                   </Button>
-                  <ComboBox fx:id="cbCategories" layoutX="491.0" layoutY="198.0" prefWidth="150.0" />
+                  <ComboBox fx:id="cat" layoutX="491.0" layoutY="198.0" prefWidth="150.0" />
                   <Label fx:id="Categories" layoutX="496.0" layoutY="155.0" prefHeight="44.0" prefWidth="85.0" text="Catgeories" />
                </children>
             </AnchorPane>

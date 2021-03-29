@@ -5,6 +5,7 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
@@ -12,21 +13,32 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.EventController">
+<AnchorPane id="AnchorPane" prefHeight="609.0" prefWidth="771.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.EventController">
     <children>
-      <AnchorPane opacity="0.41" prefHeight="290.0" prefWidth="795.0" style="-fx-background-color: black;">
-         <effect>
-            <InnerShadow choke="0.51" />
-         </effect>
-      </AnchorPane>
-      <ImageView fitHeight="301.0" fitWidth="808.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="287.0" fitWidth="543.0">
          <image>
-            <Image url="@parallax.jpg" />
+            <Image url="@../image/download.jpg" />
          </image>
-         <effect>
-            <InnerShadow choke="0.51" height="1.0" radius="0.0" width="0.0" />
-         </effect>
       </ImageView>
+      <AnchorPane accessibleRole="IMAGE_VIEW" cache="true" cacheHint="QUALITY" layoutX="-3.0" mouseTransparent="true" opacity="0.53" prefHeight="287.0" prefWidth="801.0" style="-fx-background-color: black;">
+         <effect>
+            <InnerShadow choke="0.51" color="#320404" />
+         </effect>
+         <children>
+            <Label layoutX="614.0" layoutY="187.0" prefHeight="39.0" prefWidth="163.0" text="Search:" textFill="#2131da">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="45.0" fitWidth="33.0" layoutX="720.0" layoutY="190.0">
+               <image>
+                  <Image url="@../image/loupe_1.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="filterField" layoutX="602.0" layoutY="247.0" promptText="search..." />
+           
+         </children>
+      </AnchorPane>
       <SplitPane layoutX="16.0" layoutY="205.0" prefHeight="404.0" prefWidth="527.0">
          <items>
             <TableView fx:id="tvEvent" prefHeight="399.0" prefWidth="525.0">
@@ -57,20 +69,13 @@
                <font>
                   <Font size="21.0" />
                </font>
-               <graphic>
-                  <ImageView fitHeight="37.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icons8-plus-30.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
             </Button>
             <Button fx:id="Modifiy" layoutX="24.0" layoutY="82.0" mnemonicParsing="false" onAction="#modifierEventAction" opacity="0.83" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #6f6f6f;" text="Modifiy Event" textFill="WHITE">
                <effect>
                   <InnerShadow height="10.5" radius="2.125" width="0.0" />
                </effect>
                <font>
-                  <Font size="21.0" />
+                  <Font size="18.0" />
                </font>
             </Button>
             <Button fx:id="remove" layoutX="24.0" layoutY="141.0" mnemonicParsing="false" onAction="#SupprimerEventAction" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #c0453d;" text="Delete Event" textFill="WHITE">
@@ -80,31 +85,25 @@
                <font>
                   <Font size="21.0" />
                </font>
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icons8-supprimer-pour-toujours-50.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
             </Button>
-      
-             
+            <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="35.0" layoutY="29.0">
+               <image>
+                  <Image url="@../image/hh%20(2).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="24.0" layoutY="147.0">
+               <image>
+                  <Image url="@../image/icons8-supprimer-pour-toujours-50_1.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="id_mail" layoutX="60.0" layoutY="231.0" mnemonicParsing="false" onAction="#mail" prefHeight="31.0" prefWidth="110.0" text="mail" />
+        <Button fx:id="Print" layoutX="7.0" layoutY="186.0" mnemonicParsing="false" onAction="#generatepdf" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #05052a;" text="Print" textFill="WHITE" /> 
+                   
          </children>
          <effect>
             <DropShadow />
          </effect>
       </AnchorPane>
-      <Label layoutX="638.0" layoutY="213.0" prefHeight="39.0" prefWidth="163.0" text="Search" textFill="#961a1a">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="51.0" fitWidth="92.0" layoutX="587.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/1443.png" />
-         </image>
-      </ImageView>
    </children>
    <effect>
       <InnerShadow />

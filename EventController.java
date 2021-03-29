@@ -7,11 +7,23 @@ package gui;
 
 import com.esprit.models.Categorie;
 import com.esprit.models.Event;
+import com.esprit.services.ServiceCategorie;
 import com.esprit.services.ServiceEvent;
+import com.esprit.utils.DataSource;
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -39,6 +51,13 @@ import javafx.stage.Stage;
 
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.scene.control.TextField;
+import doryan.windowsnotificationapi.fr.Notification;
+import java.awt.AWTException;
+import java.awt.TrayIcon;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.net.MalformedURLException;
 /**
  * FXML Controller class
  *
@@ -52,8 +71,6 @@ public class EventController implements Initializable {
     @FXML
     private Button remove;
     @FXML
-    private Button Print;
-    @FXML
      private TableColumn<Event, String> tcNom;
     @FXML
      private TableColumn<Event, Categorie> tcCategories;
@@ -62,8 +79,6 @@ public class EventController implements Initializable {
     @FXML
      private TableColumn<Event, String> tcDescription;
     @FXML
-     private TableColumn<Event, String> tcNbr_participant;
-    @FXML
      private TableColumn<Event, String> tcLieu_event;
     @FXML
      private TableColumn<Event, String> tcPrice;
@@ -71,35 +86,69 @@ public class EventController implements Initializable {
     private TableView<Event> tvEvent;
     private int as ;
     @FXML
-   private JFXTextField filterField;
+    private Button id_mail;
+    @FXML
+    private TextField filterField;
+    @FXML
+    private Button Print;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        ServiceEvent es = new ServiceEvent();
-        
-        List<Event> le = new ArrayList<>();
+
+        ServiceEvent sousCatService= new ServiceEvent();
+        ArrayList<Event> lesSousCategories = new ArrayList<>();
         try {
-            le = (ArrayList<Event>) es.Afficher();
-            ObservableList<Event> data = FXCollections.observableArrayList(le);
-            FilteredList<Event> fle = new FilteredList(data, e -> true);
-            tcNom.setCellValueFactory(new PropertyValueFactory<>("Nom"));
-            tcCategories.setCellValueFactory(new PropertyValueFactory<>("Categories_id"));
-            tcDate_event.setCellValueFactory(new PropertyValueFactory<>("Date_event"));
-            tcDescription.setCellValueFactory(new PropertyValueFactory<>("Description"));
-            tcLieu_event.setCellValueFactory(new PropertyValueFactory<>("Lieu_event"));
-            tcPrice.setCellValueFactory(new PropertyValueFactory<>("Prix"));
+              
+            lesSousCategories = (ArrayList<Event>) sousCatService.readAl();
+            System.out.println(lesSousCategories);
+            for(int i=0;i<lesSousCategories.size();i++){
+                
+                ServiceCategorie catService = new ServiceCategorie();
+                lesSousCategories.get(i).setCategories_id(catService.getCategorieById(
+                        lesSousCategories.get(i).getCategories_id().getId()));
+                System.out.println(lesSousCategories);
+            }
             
-            tvEvent.setItems(fle);
-            int nbe=tvEvent.getItems().size();
             
-        }catch (SQLException ex) {
+          
+        } catch (SQLException ex) {
             Logger.getLogger(EventController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-     filterField.textProperty().addListener((observable, oldValue, newValue) -> {
+        ObservableList obs = FXCollections.observableArrayList(lesSousCategories);
+        tvEvent.setItems(obs);         
+            
+            
+        System.out.println(obs);
+        List<Event> le = new ArrayList<>();
+/* ServiceEvent sousCatService= new ServiceEvent();
+     ArrayList<Event> lesSousCategories = new ArrayList<>();
+     lesSousCategories = (ArrayList<Event>) sousCatService.readll();
+     System.out.println(lesSousCategories);
+     for(int i=0;i<lesSousCategories.size();i++){
+     ServiceCategorie catService = new ServiceCategorie();
+     lesSousCategories.get(i).setCategories_id(catService.getCategorieById(
+     lesSousCategories.get(i).getCategories_id().getId()));
+     System.out.println(lesSousCategories);
+     }
+     ObservableList obs = FXCollections.observableArrayList(lesSousCategories);
+     tab.setItems(obs);
+     System.out.println(obs);
+     Categorie.setCellValueFactory(new PropertyValueFactory<>("categorie_id"));*/
+        tcNom.setCellValueFactory(new PropertyValueFactory<>("Nom"));
+        tcCategories.setCellValueFactory(new PropertyValueFactory<>("Categories_id"));
+        tcDate_event.setCellValueFactory(new PropertyValueFactory<>("Date_event"));
+        tcDescription.setCellValueFactory(new PropertyValueFactory<>("Description"));
+        tcLieu_event.setCellValueFactory(new PropertyValueFactory<>("Lieu_event"));
+        tcPrice.setCellValueFactory(new PropertyValueFactory<>("Prix"));
+        int nbe=tvEvent.getItems().size();
+   FilteredList<Event> filteredData = new FilteredList<>(obs, b -> true);
+      {
+			filterField.textProperty().addListener((observable, oldValue, newValue) -> {
 			filteredData.setPredicate(employee -> {
 				// If filter text is empty, display all persons.
 								
@@ -112,19 +161,19 @@ public class EventController implements Initializable {
 				
 				if (employee.getDescription().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
 					return true; // Filter matches first name.
-				} else if (employee.getCategories_id().getNom().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+				} else if (employee.getCategories_id().getType().toLowerCase().indexOf(lowerCaseFilter) != -1) {
 					return true; // Filter matches last name.
 				
-                                } else if (employee.getLocalitsation_velo().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                                } else if (employee.getLieu_event().toLowerCase().indexOf(lowerCaseFilter) != -1) {
 					return true; // Filter matches last name.
 				}
-                                  else if (String.valueOf(employee.getQuantity()).indexOf(lowerCaseFilter) != -1) {
+                                  else if (String.valueOf(employee.getDescription()).indexOf(lowerCaseFilter) != -1) {
 					return true; // Filter matches last name.
 				}
-                                      else if (String.valueOf(employee.getPrice_location()).indexOf(lowerCaseFilter) != -1) {
+                                      else if (String.valueOf(employee.getPrix()).indexOf(lowerCaseFilter) != -1) {
 					return true; // Filter matches last name.
 				}
-                                            else if (String.valueOf(employee.getDate_circulation()).indexOf(lowerCaseFilter) != -1) {
+                                            else if (String.valueOf(employee.getDate_event()).indexOf(lowerCaseFilter) != -1) {
 					return true; // Filter matches last name.
 				}
 				     else  
@@ -132,15 +181,20 @@ public class EventController implements Initializable {
 			});
         
         	});
-        SortedList<Velo> sortedData = new SortedList<>(filteredData);
+        SortedList<Event> sortedData = new SortedList<>(filteredData);
+      
 		
 		// 4. Bind the SortedList comparator to the TableView comparator.
 		// 	  Otherwise, sorting the TableView would have no effect.
-		sortedData.comparatorProperty().bind(tabv.comparatorProperty());
+		sortedData.comparatorProperty().bind(tvEvent.comparatorProperty());
 		
 		// 5. Add sorted (and filtered) data to the table.
-		tabv.setItems(sortedData);   
+		tvEvent.setItems(sortedData);
+
+                            
     } 
+                                }
+    
     
     @FXML
     private void ajouterEventAction(ActionEvent event)  {
@@ -158,7 +212,6 @@ public class EventController implements Initializable {
         
     }
     
-    @FXML
         private void TableEvent(ActionEvent event) {
         
         
@@ -180,7 +233,7 @@ if(e==null){
             alert.showAndWait();
      
         }else {
-   try {   
+     
         FXMLLoader loader = new FXMLLoader
                         (getClass()
                          .getResource("ModifyEvent.fxml"));
@@ -199,6 +252,7 @@ if(e==null){
         String Lieu_event = tvEvent.getSelectionModel().getSelectedItem().getLieu_event();
         Double Prix = tvEvent.getSelectionModel().getSelectedItem().getPrix();
         
+        
         mc.setData(
                  tvEvent.getSelectionModel().getSelectedItem().getId(),
                  tvEvent.getSelectionModel().getSelectedItem().getNom(),
@@ -207,12 +261,11 @@ if(e==null){
                  tvEvent.getSelectionModel().getSelectedItem().getLieu_event(),
                  tvEvent.getSelectionModel().getSelectedItem().getPrix()
         );
-        } catch(Exception ex)
-    {
-     System.out.println("eer");
+        } 
+    
 }
-        }
-   }
+        
+   
     
     
     public void loadData() throws SQLException{
@@ -221,30 +274,10 @@ if(e==null){
     dataa = FXCollections.observableArrayList(new ServiceEvent().lister());
     }
     
-    void refresh() throws SQLException {
-         try {
-           ServiceEvent es = new ServiceEvent();
-        
-
-           ArrayList<Event> le;
-       
-            le = (ArrayList<Event>) es.Afficher();
-            ObservableList<Event> data = FXCollections.observableArrayList(le);
-            tcNom.setCellValueFactory(new PropertyValueFactory<>("Nom"));
-            tcCategories.setCellValueFactory(new PropertyValueFactory<>("Categories"));
-            tcDate_event.setCellValueFactory(new PropertyValueFactory<>("Date_event"));
-            tcDescription.setCellValueFactory(new PropertyValueFactory<>("Description"));
-            tcLieu_event.setCellValueFactory(new PropertyValueFactory<>("Lieu_event"));
-            tcPrice.setCellValueFactory(new PropertyValueFactory<>("Prix"));
-
-            tvEvent.setItems(data);
-        } catch (SQLException ex) {
-            Logger.getLogger(EventController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+   
     
     @FXML
-        private void SupprimerEventAction(ActionEvent event) throws SQLException {
+        private void SupprimerEventAction(ActionEvent event) throws SQLException, MalformedURLException  {
             Event e=tvEvent.getSelectionModel().getSelectedItem();
         
         if(e==null){
@@ -260,7 +293,7 @@ if(e==null){
         }else {
             ServiceEvent es=new ServiceEvent();
             String nom_P=e.getNom();
-            try {
+            
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Supprimer Evenement");
                 alert.setHeaderText(null);
@@ -275,19 +308,168 @@ if(e==null){
                     alert1.setContentText("Evenement supprimé!");
 
                     alert1.showAndWait();
-                             loadData();
-         refresh();
+                    
+                      setCellTableNormale();
+       es.readAl() ;
+       
+          try {
+                Notification.sendNotification("Success", "Bike of location removed with successful",TrayIcon.MessageType.INFO);
+            } catch (AWTException ex) {
+                Logger.getLogger(ServiceEvent.class.getName()).log(Level.SEVERE, null, ex);     
+}
+         
                 }
-            } catch (Exception ex) {
+                
+         
+        }
+       
+        }
+        
+               
+    
+
+/*
+    @FXML
+    private void mail(ActionEvent event) throws IOException {
+      //mail m=new mail();
+     // m.message("Maram.benameur@esprit.tn","nouveau evenement");
+      
+    } */
+
+   @FXML
+private void mail(ActionEvent event)  {
+            
+   FXMLLoader loader = new FXMLLoader
+                        (getClass()
+                                .getResource("main.fxml"));
+        try {
+            Parent root = loader.load();
+            add.getScene().setRoot(root);
+                            
+        } catch (IOException ex) {
+            Logger.getLogger(ServiceEvent.class.getName()).log(Level.SEVERE, null, ex);
+        }}
+    @FXML
+    private void generatepdf(ActionEvent event) throws DocumentException, BadElementException, IOException, FileNotFoundException, InterruptedException, SQLException
+    {  Pdf pd=new Pdf();
+       System.out.println(" hello");
+        try{
+        pd.GeneratePdf("list of event");
+            System.out.println("impression done");
+        } catch (Exception ex) {
             Logger.getLogger(EventController.class.getName()).log(Level.SEVERE, null, ex);
             }
-        
+    }
 
+    private void setCellTableNormale() {
+        
+       ServiceEvent sousCatService= new ServiceEvent();
+        ArrayList<Event> lesSousCategories = new ArrayList<>();
+        try {
+              
+            lesSousCategories = (ArrayList<Event>) sousCatService.readAl();
+            System.out.println(lesSousCategories);
+            for(int i=0;i<lesSousCategories.size();i++){
+                
+                ServiceCategorie catService = new ServiceCategorie();
+                lesSousCategories.get(i).setCategories_id(catService.getCategorieById(
+                        lesSousCategories.get(i).getCategories_id().getId()));
+                System.out.println(lesSousCategories);
+            }
+            
+            
+          
+        } catch (SQLException ex) {
+            Logger.getLogger(EventController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        }
+        ObservableList obs = FXCollections.observableArrayList(lesSousCategories);
+        tvEvent.setItems(obs);         
+            
+            
+        System.out.println(obs);
+        List<Event> le = new ArrayList<>();
+/* ServiceEvent sousCatService= new ServiceEvent();
+     ArrayList<Event> lesSousCategories = new ArrayList<>();
+     lesSousCategories = (ArrayList<Event>) sousCatService.readll();
+     System.out.println(lesSousCategories);
+     for(int i=0;i<lesSousCategories.size();i++){
+     ServiceCategorie catService = new ServiceCategorie();
+     lesSousCategories.get(i).setCategories_id(catService.getCategorieById(
+     lesSousCategories.get(i).getCategories_id().getId()));
+     System.out.println(lesSousCategories);
+     }
+     ObservableList obs = FXCollections.observableArrayList(lesSousCategories);
+     tab.setItems(obs);
+     System.out.println(obs);
+     Categorie.setCellValueFactory(new PropertyValueFactory<>("categorie_id"));*/
+        tcNom.setCellValueFactory(new PropertyValueFactory<>("Nom"));
+        tcCategories.setCellValueFactory(new PropertyValueFactory<>("Categories_id"));
+        tcDate_event.setCellValueFactory(new PropertyValueFactory<>("Date_event"));
+        tcDescription.setCellValueFactory(new PropertyValueFactory<>("Description"));
+        tcLieu_event.setCellValueFactory(new PropertyValueFactory<>("Lieu_event"));
+        tcPrice.setCellValueFactory(new PropertyValueFactory<>("Prix"));
+        int nbe=tvEvent.getItems().size();
+   FilteredList<Event> filteredData = new FilteredList<>(obs, b -> true);
+      {
+			filterField.textProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate(employee -> {
+				// If filter text is empty, display all persons.
+								
+				if (newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				
+				// Compare first name and last name of every person with filter text.
+				String lowerCaseFilter = newValue.toLowerCase();
+				
+				if (employee.getDescription().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; // Filter matches first name.
+				} else if (employee.getCategories_id().getType().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches last name.
+				
+                                } else if (employee.getLieu_event().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches last name.
+				}
+                                  else if (String.valueOf(employee.getDescription()).indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches last name.
+				}
+                                      else if (String.valueOf(employee.getPrix()).indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches last name.
+				}
+                                            else if (String.valueOf(employee.getDate_event()).indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches last name.
+				}
+				     else  
+				    	 return false; // Does not match.
+			});
         
-         
+        	});
+        SortedList<Event> sortedData = new SortedList<>(filteredData);
+      
+		
+		// 4. Bind the SortedList comparator to the TableView comparator.
+		// 	  Otherwise, sorting the TableView would have no effect.
+		sortedData.comparatorProperty().bind(tvEvent.comparatorProperty());
+		
+		// 5. Add sorted (and filtered) data to the table.
+		tvEvent.setItems(sortedData);
+
+                            
+    } 
+                                }
+    
     
     }
+
+
+                
+            
+    
+    
+    
+    
+
+
+
    
