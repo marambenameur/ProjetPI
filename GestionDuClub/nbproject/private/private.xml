@@ -3,17 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Hamidou/Documents/NetBeans/GestionDuClub/src/com/esprit/tests/MainGUI.java</file>
-            <file>file:/C:/Users/Hamidou/Documents/NetBeans/GestionDuClub/src/com/esprit/clubfootballgui/JoueursguiController.java</file>
-            <file>file:/C:/Users/Hamidou/Documents/NetBeans/GestionDuClub/src/com/esprit/models/Joueurs.java</file>
-            <file>file:/C:/Users/Hamidou/Documents/NetBeans/GestionDuClub/src/com/esprit/clubfootballgui/GestionguiController.java</file>
-            <file>file:/C:/Users/Hamidou/Documents/NetBeans/GestionDuClub/src/com/esprit/services/Servicecompetition.java</file>
-            <file>file:/C:/Users/Hamidou/Documents/NetBeans/GestionDuClub/src/com/esprit/clubfootballgui/CompetitionguiController.java</file>
-            <file>file:/C:/Users/Hamidou/Documents/NetBeans/GestionDuClub/src/com/esprit/services/Serviceclub.java</file>
-            <file>file:/C:/Users/Hamidou/Documents/NetBeans/GestionDuClub/src/com/esprit/tests/MainProg.java</file>
-            <file>file:/C:/Users/Hamidou/Documents/NetBeans/GestionDuClub/src/com/esprit/services/ServiceJoueurs.java</file>
-            <file>file:/C:/Users/Hamidou/Documents/NetBeans/GestionDuClub/src/com/esprit/models/competition.java</file>
-            <file>file:/C:/Users/Hamidou/Documents/NetBeans/GestionDuClub/src/com/esprit/clubfootballgui/ClubguiController.java</file>
+            <file>file:/C:/Users/Hamidou/Documents/NetBeans/GestionDuClub/src/Controllers/GestionguiController.java</file>
+            <file>file:/C:/Users/Hamidou/Documents/NetBeans/GestionDuClub/src/Services/Serviceclub.java</file>
+            <file>file:/C:/Users/Hamidou/Documents/NetBeans/GestionDuClub/src/Tables/Joueurs.java</file>
+            <file>file:/C:/Users/Hamidou/Documents/NetBeans/GestionDuClub/src/Services/ServiceJoueurs.java</file>
+            <file>file:/C:/Users/Hamidou/Documents/NetBeans/GestionDuClub/src/Controllers/JoueursguiController.java</file>
+            <file>file:/C:/Users/Hamidou/Documents/NetBeans/GestionDuClub/src/Mains/MainProg.java</file>
         </group>
     </open-files>
 </project-private>

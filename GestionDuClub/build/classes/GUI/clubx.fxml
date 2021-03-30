@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ClubxController">
+   <children>
+      <TableView fx:id="tv" layoutX="28.0" layoutY="126.0" prefHeight="200.0" prefWidth="628.0">
+        <columns>
+          <TableColumn fx:id="tvnom" prefWidth="120.0" text="Nom" />
+          <TableColumn fx:id="tvpren" prefWidth="120.0" text="Prenom " />
+            <TableColumn fx:id="tvage" prefWidth="115.0" text="Age" />
+            <TableColumn fx:id="tvemail" prefWidth="170.0" text="Email" />
+            <TableColumn fx:id="tvclub" prefWidth="101.5999755859375" text="Club" />
+        </columns>
+      </TableView>
+      <Label fx:id="clname" alignment="TOP_CENTER" layoutX="290.0" layoutY="14.0" text="Team" textAlignment="CENTER" textFill="#e3a330" underline="true">
+         <font>
+            <Font name="Berlin Sans FB" size="30.0" />
+         </font></Label>
+      <Button fx:id="quitte" defaultButton="true" layoutX="233.0" layoutY="336.0" mnemonicParsing="false" onAction="#quittee" prefHeight="50.0" prefWidth="195.0" style="-fx-background-radius: 100; -fx-border-radius: 100;" text="Quitté">
+         <font>
+            <Font name="Berlin Sans FB" size="12.0" />
+         </font></Button>
+      <TextField fx:id="idcl" editable="false" layoutX="60.0" layoutY="84.0" prefHeight="26.0" prefWidth="38.0" visible="false" />
+      <Button fx:id="btn_jrs" defaultButton="true" layoutX="228.0" layoutY="84.0" mnemonicParsing="false" onAction="#afficher" prefHeight="26.0" prefWidth="195.0" style="-fx-background-radius: 100; -fx-border-radius: 100;" text="Afficher les joueurs du club" />
+      <Separator layoutY="62.0" prefHeight="8.0" prefWidth="675.0" />
+   </children>
+</AnchorPane>
