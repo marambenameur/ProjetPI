@@ -7,6 +7,7 @@ package fx;
 
 import datasource.DataSource;
 import entity.Equipe;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,11 +18,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import service.ServiceEquipe;
 
 /**
@@ -42,6 +47,12 @@ public class AjouterequipeController implements Initializable {
     @FXML
     private Button Afficher;
 ObservableList<Equipe> list = FXCollections.observableArrayList();
+    @FXML
+    private Button btnajouter;
+    @FXML
+    private Button btnsupp;
+    @FXML
+    private Button btnmod;
     /**
      * Initializes the controller class.
      */
@@ -70,6 +81,33 @@ ObservableList<Equipe> list = FXCollections.observableArrayList();
         
         table.setItems(list);
     }
+
+  
+
+    private void loadStage(String fxml) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource(fxml));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+        }
+    
     }
+
+    @FXML
+    private void btnaction(javafx.event.ActionEvent mouseEvent) {
+        if (mouseEvent.getSource() == btnmod) {
+            loadStage("../fx/modifierequipe.fxml");
+        } else if (mouseEvent.getSource() == btnajouter) {
+            loadStage("../fx/afficherequipe.fxml");
+        }
+           else if (mouseEvent.getSource() == btnsupp) {
+            loadStage("../fx/supprimerequipe.fxml");}
+    }
+
+   
+
+}
     
 

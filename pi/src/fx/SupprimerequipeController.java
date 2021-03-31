@@ -13,9 +13,11 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 import service.ServiceEquipe;
 
 /**
@@ -42,7 +44,13 @@ public class SupprimerequipeController implements Initializable {
     private void supprimer(ActionEvent event) {
          ServiceEquipe se = new ServiceEquipe();
         se.supprimer(new Equipe( parseInt(id.getText())));
-    JOptionPane.showMessageDialog(null,"Equipe supprimé");
+    Notifications n = Notifications.create()
+                              .title("SUCCESS")
+                              .text("equipe supprimer")
+                              .position(Pos.TOP_CENTER)
+                              .hideAfter(javafx.util.Duration.seconds(3));
+               n.darkStyle();
+               n.show();
     }
     
 }

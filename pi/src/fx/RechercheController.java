@@ -70,7 +70,7 @@ public class RechercheController implements Initializable {
             Statement stm = cnx.createStatement();
             ResultSet rst = stm.executeQuery(requete);
             while (rst.next()) {
-                list.add(new Demande(rst.getInt(1), rst.getString(2), rst.getInt(3),rst.getInt(4)));
+                list.add(new Demande(rst.getInt(1), rst.getString(2), rst.getString(3),rst.getString(4),rst.getString(5)));
             }
         } catch (SQLException ex) {
             System.out.println("aucun terrain disponible!");
@@ -79,10 +79,14 @@ public class RechercheController implements Initializable {
         rech.getText();
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
-        terrain.setCellValueFactory(new PropertyValueFactory<>("idterrain"));
-        equipe.setCellValueFactory(new PropertyValueFactory<>("idequipe"));
+        terrain.setCellValueFactory(new PropertyValueFactory<>("nomterrain"));
+        equipe.setCellValueFactory(new PropertyValueFactory<>("nomequipe"));
         table.setItems(list);
     
+    }
+
+    @FXML
+    private void recherche(ActionEvent event) {
     }
     
 }

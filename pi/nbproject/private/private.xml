@@ -5,13 +5,18 @@
         <group>
             <file>file:/C:/Users/ABS1/Documents/NetBeansProjects/pi/src/fx/ajouter.fxml</file>
             <file>file:/C:/Users/ABS1/Documents/NetBeansProjects/pi/src/service/ServiceEquipe.java</file>
+            <file>file:/C:/Users/ABS1/Documents/NetBeansProjects/pi/src/fx/AfficherController.java</file>
+            <file>file:/C:/Users/ABS1/Documents/NetBeansProjects/pi/src/fx/AjouterController.java</file>
+            <file>file:/C:/Users/ABS1/Documents/NetBeansProjects/pi/src/fx/afficherequipe.fxml</file>
+            <file>file:/C:/Users/ABS1/Documents/NetBeansProjects/pi/src/entity/Equipe.java</file>
+            <file>file:/C:/Users/ABS1/Documents/NetBeansProjects/pi/src/pi/mainGUI.java</file>
             <file>file:/C:/Users/ABS1/Documents/NetBeansProjects/pi/src/service/ServiceDemande.java</file>
             <file>file:/C:/Users/ABS1/Documents/NetBeansProjects/pi/src/datasource/DataSource.java</file>
             <file>file:/C:/Users/ABS1/Documents/NetBeansProjects/pi/src/pi/Pi.java</file>
-            <file>file:/C:/Users/ABS1/Documents/NetBeansProjects/pi/src/service/IService2.java</file>
+            <file>file:/C:/Users/ABS1/Documents/NetBeansProjects/pi/src/fx/afficher.fxml</file>
             <file>file:/C:/Users/ABS1/Documents/NetBeansProjects/pi/src/entity/Demande.java</file>
-            <file>file:/C:/Users/ABS1/Documents/NetBeansProjects/pi/src/entity/Equipe.java</file>
             <file>file:/C:/Users/ABS1/Documents/NetBeansProjects/pi/src/service/IService.java</file>
+            <file>file:/C:/Users/ABS1/Documents/NetBeansProjects/pi/src/fx/AfficherequipeController.java</file>
         </group>
     </open-files>
 </project-private>

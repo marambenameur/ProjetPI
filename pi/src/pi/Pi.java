@@ -28,7 +28,7 @@ public class Pi {
         DataSource cnx = new DataSource();
         ServiceDemande sd = new ServiceDemande();
         ServiceEquipe se = new ServiceEquipe();
-        Demande d1= new Demande(3,"ala",21,55);
+        //Demande d1= new Demande(3,"ala",21,55);
    // sd.ajouter(d1);
    //     se.ajouter(new Equipe(1,"ahmed", 12));
    // Equipe e1 = new Equipe(1,"",25);

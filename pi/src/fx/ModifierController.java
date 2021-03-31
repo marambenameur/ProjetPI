@@ -34,6 +34,8 @@ public class ModifierController implements Initializable {
     private TextField id;
     @FXML
     private Button modifier;
+    @FXML
+    private TextField email;
 
     /**
      * Initializes the controller class.
@@ -46,13 +48,25 @@ public class ModifierController implements Initializable {
     @FXML
     private void modifier(ActionEvent event) {
         ServiceDemande sd = new ServiceDemande();
-        sd.modifier(new Demande(parseInt(id.getText()),date.getText(),parseInt( terrain.getText()),parseInt(equipe.getText())));
+        sd.modifier(new Demande(parseInt(id.getText()),date.getText(), terrain.getText(),equipe.getText(),email.getText()));
     JOptionPane.showMessageDialog(null,"demande modifié");
         
     }
 
     @FXML
     private void initialize(ActionEvent event) {
+        
+        
     }
-    
+    public  void showInformation(String i , String d, String t,String e,String em ) {
+        
+       id.setText(i);
+       date.setText(d);
+       terrain.setText(t);
+       equipe.setText(e);
+       email.setText(em);
+        
+        
+        
+    }
 }

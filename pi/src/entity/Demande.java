@@ -5,6 +5,8 @@
  */
 
 package entity;
+import java.sql.Date;
+
 
 /**
  *
@@ -12,16 +14,59 @@ package entity;
  */
 public class Demande {
     private int id;
-    private String date;
-    private int  idterrain;
-    private int idequipe;
+   private  String date;
+    private String  nomterrain;
+    private String nomequipe;
+    private String email;
+    private String etat;
+
+    public String getEtat() {
+        return etat;
+    }
+
+    public Demande(String date, String nomterrain, String nomequipe, String email, String etat) {
+        this.date = date;
+        this.nomterrain = nomterrain;
+        this.nomequipe = nomequipe;
+        this.email = email;
+        this.etat = etat;
+    }
+
+    public Demande(int id, String date, String nomterrain, String nomequipe, String email, String etat) {
+        this.id = id;
+        this.date = date;
+        this.nomterrain = nomterrain;
+        this.nomequipe = nomequipe;
+        this.email = email;
+        this.etat = etat;
+    }
+
+    public void setEtat(String etat) {
+        this.etat = etat;
+    }
+
+    public Demande(String date, String nomterrain, String nomequipe, String email) {
+        this.date = date;
+        this.nomterrain = nomterrain;
+        this.nomequipe = nomequipe;
+        this.email = email;
+    }
     
-    public Demande (int id, String date, int idterrain, int idequipe) {
+    public Demande (int id, String date, String nomterrain, String nomequipe,String email) {
         this.id = id;
         this.date =date;
-        this.idterrain = idterrain;
-        this.idequipe= idequipe;
+        this.nomterrain = nomterrain;
+        this.nomequipe= nomequipe;
+        this.email=email;
         
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public Demande(int id) {
@@ -32,19 +77,19 @@ public class Demande {
     public Demande() {
     }
 
-    public Demande(int id, int idterrain, int idequipe) {
+    public Demande(int id, String nomterrain, String nomequipe) {
         this.id = id;
-        this.idterrain = idterrain;
-        this.idequipe = idequipe;
+        this.nomterrain = nomterrain;
+        this.nomequipe = nomequipe;
     }
 
     
     
 
-    public Demande(String date, int idterrain, int idequipe) {
+    public Demande(String date, String nomterrain, String nomequipe) {
         this.date = date;
-        this.idterrain = idterrain;
-        this.idequipe = idequipe;
+        this.nomterrain = nomterrain;
+        this.nomequipe = nomequipe;
     }
 
     public int getId() {
@@ -55,12 +100,12 @@ public class Demande {
         return date;
     }
 
-    public int getIdterrain() {
-        return idterrain;
+    public String getNomterrain() {
+        return nomterrain;
     }
 
-    public int getIdequipe() {
-        return idequipe;
+    public String getNomequipe() {
+        return nomequipe;
     }
 
     public void setId(int id) {
@@ -71,17 +116,17 @@ public class Demande {
         this.date = date;
     }
 
-    public void setIdterrain(int idterrain) {
-        this.idterrain = idterrain;
+    public void setNomterrain(String nomterrain) {
+        this.nomterrain = nomterrain;
     }
 
-    public void setIdequipe(int idequipe) {
-        this.idequipe = idequipe;
+    public void setNomequipe(String nomequipe) {
+        this.nomequipe = nomequipe;
     }
 
     @Override
     public String toString() {
-        return "Demande{" + "id=" + id + ", date=" + date + ", idterrain=" + idterrain + ", idequipe=" + idequipe + '}';
+        return "Demande{" + "id=" + id + ", date=" + date + ", nomterrain=" + nomterrain + ", nomequipe=" + nomequipe + '}';
     }
     
     

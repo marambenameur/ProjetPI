@@ -12,9 +12,11 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 import service.ServiceDemande;
 
 /**
@@ -41,7 +43,13 @@ public class SupprimerController implements Initializable {
     private void Supprimer(ActionEvent event) {
                 ServiceDemande sd = new ServiceDemande();
         sd.supprimer(new Demande( parseInt(id.getText())));
-    JOptionPane.showMessageDialog(null,"demande supprimé");
+    Notifications n = Notifications.create()
+                              .title("SUCCESS")
+                              .text("Demande supprimeé")
+                              .position(Pos.TOP_CENTER)
+                              .hideAfter(javafx.util.Duration.seconds(3));
+               n.darkStyle();
+               n.show();
     }
     
 }

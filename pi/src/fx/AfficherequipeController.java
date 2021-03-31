@@ -12,9 +12,11 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 import service.ServiceDemande;
 import service.ServiceEquipe;
 
@@ -45,7 +47,13 @@ public class AfficherequipeController implements Initializable {
         
         ServiceEquipe se=new ServiceEquipe();
         se.ajouter(new Equipe(nom.getText(),Integer.parseInt(nombre.getText())));
-        JOptionPane.showMessageDialog(null, "demande ajouter");
+        Notifications n = Notifications.create()
+                              .title("SUCCESS")
+                              .text("  equipe Ajouté")
+                              .position(Pos.TOP_CENTER)
+                              .hideAfter(javafx.util.Duration.seconds(3));
+               n.darkStyle();
+               n.show();
     }
     
 }

@@ -3,18 +3,33 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.AfficherController">
    <children>
-      <TableView fx:id="table" layoutX="42.0" layoutY="48.0" prefHeight="268.0" prefWidth="449.0">
+      <ImageView fitHeight="400.0" fitWidth="600.0" opacity="0.83">
+         <image>
+            <Image url="@../image/158939847_1402282076809238_6712331903416729902_n.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="table" layoutX="-1.0" layoutY="79.0" prefHeight="268.0" prefWidth="587.0">
         <columns>
-          <TableColumn fx:id="id" prefWidth="75.0" text="Id" />
-          <TableColumn fx:id="date" prefWidth="137.0" text="Date" />
-            <TableColumn fx:id="terrain" prefWidth="95.0" text="Terrain" />
-            <TableColumn fx:id="equipe" prefWidth="132.0" text="Equipe" />
+          <TableColumn fx:id="id" prefWidth="18.0" text="Id" />
+          <TableColumn fx:id="date" prefWidth="87.0" text="Date" />
+            <TableColumn fx:id="terrain" prefWidth="124.0" text="Terrain" />
+            <TableColumn fx:id="equipe" prefWidth="71.0" text="Equipe" />
+            <TableColumn fx:id="email" prefWidth="148.0" text="email" />
+            <TableColumn fx:id="Etat" prefWidth="138.0" text="Etat" />
         </columns>
       </TableView>
-      <Button fx:id="afficher" layoutX="458.0" layoutY="343.0" mnemonicParsing="false" onAction="#afficher" prefHeight="25.0" prefWidth="96.0" text="Afficher" />
+      <Button fx:id="bntmod" layoutX="239.0" layoutY="356.0" mnemonicParsing="false" onAction="#btnaction" prefHeight="25.0" prefWidth="72.0" text="Modifier" />
+      <Button fx:id="btnajouter" layoutX="126.0" layoutY="356.0" mnemonicParsing="false" onAction="#btnaction" prefHeight="25.0" prefWidth="72.0" text="Ajouter" />
+      <Button fx:id="btnsupp" layoutX="25.0" layoutY="356.0" mnemonicParsing="false" onAction="#btnaction" text="Supprimer" />
+      <TextField fx:id="rech" layoutX="25.0" layoutY="14.0" />
+      <Button fx:id="telecharger" layoutX="422.0" layoutY="356.0" mnemonicParsing="false" onAction="#telecharger" prefHeight="25.0" prefWidth="120.0" text="Telecharger" />
+      <Button fx:id="match" layoutX="435.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnaction" prefHeight="25.0" prefWidth="120.0" text="Matched" />
    </children>
 </AnchorPane>

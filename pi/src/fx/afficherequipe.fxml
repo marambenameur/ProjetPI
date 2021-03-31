@@ -10,9 +10,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.AfficherequipeController">
    <children>
-      <ImageView fitHeight="408.0" fitWidth="600.0" layoutY="-2.0" opacity="0.61">
+      <ImageView fitHeight="400.0" fitWidth="600.0" opacity="0.8">
          <image>
-            <Image url="@../../../../../Desktop/158939847_1402282076809238_6712331903416729902_n.jpg" />
+            <Image url="@../image/158939847_1402282076809238_6712331903416729902_n.jpg" />
          </image>
       </ImageView>
       <TextField fx:id="nom" layoutX="102.0" layoutY="142.0" />
