@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FactureController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0">
+         <children>
+            <AnchorPane id="AnchorPane" layoutY="3.0" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: white;">
+               <children>
+                  <Pane prefHeight="120.0" prefWidth="900.0" style="-fx-background-color: #EDEDED;" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3c3c3" height="386.0" layoutX="20.0" layoutY="173.0" opacity="0.51" stroke="#f2f2f2" strokeType="INSIDE" width="368.0" />
+                  <DatePicker fx:id="date" layoutX="263.0" layoutY="214.0" prefHeight="25.0" prefWidth="114.0" promptText="date" showWeekNumbers="true" style="-fx-background-color: #cccccc; -fx-border-color: #9efd38; -fx-background-radius: 100;" />
+                  <ComboBox fx:id="type" layoutX="112.0" layoutY="258.0" prefHeight="25.0" prefWidth="84.0" style="-fx-background-radius: 100; -fx-border-color: #9efd38;" />
+                  <Label layoutX="218.0" layoutY="216.0" text="Date :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="218.0" layoutY="261.0" text="Tier :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="34.0" layoutY="216.0" text="Numéro Piéce :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="34.0" layoutY="260.0" text="Type :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label" layoutX="127.0" layoutY="175.0" text="Consultation">
+                     <font>
+                        <Font name="System Bold" size="23.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="ref" layoutX="144.0" layoutY="214.0" onAction="#refvalid" prefHeight="25.0" prefWidth="60.0" style="-fx-background-radius: 100; -fx-border-color: #9efd38;" />
+                  <TextField fx:id="tier" layoutX="263.0" layoutY="261.0" onAction="#tiervalid" prefHeight="33.0" prefWidth="114.0" style="-fx-background-radius: 100; -fx-border-color: #9efd38;" />
+                  <Label layoutX="126.0" layoutY="293.0" text="Articles Mvts" textFill="#348331">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tabarticle" editable="true" layoutX="31.0" layoutY="325.0" onMouseClicked="#getselectedarticle" opacity="0.69" prefHeight="185.0" prefWidth="305.0">
+                     <columns>
+                        <TableColumn fx:id="col_refart" prefWidth="75.0" text="Référence" />
+                        <TableColumn fx:id="col_lib" prefWidth="140.0" text="Libelle" />
+                        <TableColumn fx:id="col_qt" prefWidth="82.0" text="Quantités" />
+                     </columns>
+                  </TableView>
+                  <Button fx:id="annuler" layoutX="247.0" layoutY="525.0" mnemonicParsing="false" onAction="#annuler" style="-fx-background-color: #3AF24B; -fx-background-radius: 100;" text="Annuler" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="modiffact" layoutX="162.0" layoutY="525.0" mnemonicParsing="false" onAction="#modifierfacture" style="-fx-background-color: #3AF24B; -fx-background-radius: 100;" text="Modifier" textFill="#fcfcfc">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="ajoutfact" layoutX="83.0" layoutY="525.0" mnemonicParsing="false" onAction="#ajouterfacture" style="-fx-background-color: #3AF24B; -fx-background-radius: 100;" text="Ajouter" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="suppart" layoutX="341.0" layoutY="440.0" mnemonicParsing="false" onAction="#supprimerarticle" opacity="0.0" prefHeight="25.0" prefWidth="18.0" />
+                  <ImageView fitHeight="17.0" fitWidth="18.0" layoutX="350.0" layoutY="415.0">
+                     <image>
+                        <Image url="@../assets/63747.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="20.0" fitWidth="18.0" layoutX="350.0" layoutY="442.0">
+                     <image>
+                        <Image url="@../assets/waste.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="facturelable" layoutX="381.0" layoutY="36.0" text="Facture">
+                     <font>
+                        <Font name="Gill Sans MT Bold" size="43.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="facture" layoutX="445.0" layoutY="16.0" mnemonicParsing="false" onAction="#retourneaccuiel" opacity="0.0" prefHeight="93.0" prefWidth="94.0" />
+                  <Button fx:id="suppfact" layoutX="533.0" layoutY="475.0" mnemonicParsing="false" onAction="#supprimerfacture" prefHeight="35.0" prefWidth="114.0" style="-fx-background-color: #EB0000; -fx-background-radius: 100;" text="Supprimer" textFill="WHITE">
+                     <font>
+                        <Font name="Gill Sans MT Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <TableView fx:id="tabfacture" layoutX="410.0" layoutY="190.0" onMouseClicked="#getselctedfacture" opacity="0.79" prefHeight="276.0" prefWidth="368.0">
+                     <columns>
+                        <TableColumn fx:id="col_reffac" prefWidth="99.0" text="Numéro piéce" />
+                        <TableColumn fx:id="col_date" prefWidth="109.0" text="Date Opération" />
+                        <TableColumn minWidth="0.0" prefWidth="0.0" text="Type" />
+                        <TableColumn fx:id="col_tier" minWidth="0.0" prefWidth="67.0" text="Tier" />
+                        <TableColumn fx:id="col_type" minWidth="0.0" prefWidth="92.0" text="Type" />
+                     </columns>
+                  </TableView>
+                  <RadioButton fx:id="ajoutcheck" layoutX="782.0" layoutY="250.0" mnemonicParsing="false" onAction="#ajoutercheck" text="Ajouter" textFill="#3af24b">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="arwa" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="modifcheck" layoutX="782.0" layoutY="284.0" mnemonicParsing="false" onAction="#modifiercheck" text="Modifier" textFill="#1c14a6" toggleGroup="$arwa">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="consultcheck" layoutX="782.0" layoutY="318.0" mnemonicParsing="false" onAction="#consultercheck" text="Consulter" textFill="#bf6a0e" toggleGroup="$arwa">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <TextField fx:id="rechtype" layoutX="410.0" layoutY="134.0" onAction="#recherchetype" prefHeight="26.0" prefWidth="180.0" promptText="Search" style="-fx-background-radius: 100; -fx-border-color: #9efd38; -fx-border-radius: 100;" />
+                  <ImageView fitHeight="25.0" fitWidth="30.0" layoutX="655.0" layoutY="144.0">
+                     <image>
+                        <Image url="@../assets/print.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="20.0" fitWidth="18.0" layoutX="746.0" layoutY="145.0">
+                     <image>
+                        <Image url="@../assets/sort-down.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="imprim" layoutX="646.0" layoutY="142.0" minHeight="20.0" minWidth="18.0" mnemonicParsing="false" onAction="#pdf" opacity="0.0" prefHeight="28.0" prefWidth="18.0" />
+                  <Button fx:id="trie" layoutX="746.0" layoutY="143.0" minHeight="20.0" minWidth="36.0" mnemonicParsing="false" onAction="#trier" opacity="0.0" prefHeight="22.0" prefWidth="0.0" />
+                  <ImageView fitHeight="34.0" fitWidth="37.0" layoutX="611.0" layoutY="137.0">
+                     <image>
+                        <Image url="@../assets/apple-mail.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="698.0" layoutY="132.0">
+                     <image>
+                        <Image url="@../assets/88144.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="mail" layoutX="580.0" layoutY="140.0" minHeight="20.0" minWidth="30.0" mnemonicParsing="false" onAction="#sendmail" opacity="0.0" prefHeight="28.0" prefWidth="0.0" />
+                  <Button fx:id="sms" layoutX="691.0" layoutY="133.0" minHeight="20.0" minWidth="37.0" mnemonicParsing="false" onAction="#smsbtn" opacity="0.0" prefHeight="35.0" prefWidth="0.0" />
+                  <Label fx:id="error" layoutX="36.0" layoutY="224.0" style="-fx-text-fill: #FF0000;" />
+                  <TextField fx:id="refarticle" layoutX="319.0" layoutY="200.0" opacity="0.0" prefHeight="25.0" prefWidth="53.0" />
+                  <Button fx:id="ajoutart" layoutX="328.0" layoutY="350.0" minWidth="30.0" mnemonicParsing="false" onAction="#ajouterarticle" opacity="0.0" prefHeight="32.0" prefWidth="30.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

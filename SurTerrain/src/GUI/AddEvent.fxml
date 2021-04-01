@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="622.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddEventController">
+   <children>
+      <AnchorPane id="AnchorPane" fx:id="anchorPane" layoutX="10.0" layoutY="10.0" prefHeight="622.0" prefWidth="614.0" style="-fx-background-color: white;">
+         <children>
+            <AnchorPane layoutX="-13.0" layoutY="-11.0" prefHeight="622.0" prefWidth="614.0" style="-fx-background-color: #fff;">
+               <children>
+                  <Pane layoutX="2.0" prefHeight="90.0" prefWidth="626.0" style="-fx-background-color: #3AF24B;">
+                     <children>
+                        <Text fill="#dddddd" layoutX="165.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter Event">
+                           <font>
+                              <Font size="50.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <DatePicker fx:id="dpDate_event" layoutX="207.0" layoutY="169.0" promptText="date " />
+                  <TextField fx:id="tfPrice" layoutX="207.0" layoutY="275.0" prefHeight="31.0" prefWidth="218.0" promptText="prix" style="-fx-background-radius: 100; -fx-border-color: 100;" />
+                  <TextArea fx:id="taDescription" layoutX="204.0" layoutY="428.0" prefHeight="82.0" prefWidth="218.0" promptText="description" />
+                  <TextField fx:id="tfLieu_event" layoutX="207.0" layoutY="323.0" prefHeight="31.0" prefWidth="218.0" promptText="lieu event" style="-fx-background-radius: 100; -fx-border-color: 100;" />
+                  <TextField fx:id="tfNom" layoutX="207.0" layoutY="221.0" prefHeight="31.0" prefWidth="218.0" promptText="nom event" style="-fx-background-radius: 100; -fx-border-color: 100;" />
+                  <Button fx:id="btSaveE" layoutX="263.0" layoutY="542.0" mnemonicParsing="false" onAction="#Save" prefHeight="37.0" prefWidth="106.0" style="-fx-background-radius: 100; -fx-border-color: 100; -fx-background-color: #3AF24B;" text="Save" />
+                  <ComboBox fx:id="cat" layoutX="207.0" layoutY="378.0" prefHeight="31.0" prefWidth="218.0" promptText="categories" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

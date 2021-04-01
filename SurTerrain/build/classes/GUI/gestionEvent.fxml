@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GererEventController">
+   <children>
+      <AnchorPane prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: white;">
+         <children>
+            <Pane layoutY="1.0" prefHeight="120.0" prefWidth="900.0" style="-fx-background-color: #ededed;">
+               <children>
+                  <Label layoutX="284.0" layoutY="26.0" text="Gestion Evenement">
+                     <font>
+                        <Font name="Gill Sans MT" size="50.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Button fx:id="eventt" layoutX="51.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#actionButton" prefHeight="66.0" prefWidth="231.0" style="-fx-background-color: white; -fx-background-radius: 100; -fx-border-color: green; -fx-border-radius: 100;" text="Evenement">
+               <font>
+                  <Font name="Gill Sans MT Bold" size="27.0" />
+               </font></Button>
+            <Button fx:id="pro" layoutX="341.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#actionButton" prefHeight="66.0" prefWidth="231.0" style="-fx-background-color: white; -fx-background-radius: 100; -fx-border-color: green; -fx-border-radius: 100;" text="Promotion">
+               <font>
+                  <Font name="Gill Sans MT Bold" size="27.0" />
+               </font></Button>
+            <Button fx:id="cat" layoutX="624.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#actionButton" prefHeight="66.0" prefWidth="231.0" style="-fx-background-color: white; -fx-background-radius: 100; -fx-border-color: green; -fx-border-radius: 100;" text="Categorie">
+               <font>
+                  <Font name="Gill Sans MT Bold" size="27.0" />
+               </font></Button>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
