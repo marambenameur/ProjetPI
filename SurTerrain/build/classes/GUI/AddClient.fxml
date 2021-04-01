@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="569.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddClientController">
+   <children>
+      <TextField fx:id="nom" layoutX="164.0" layoutY="137.0" prefHeight="31.0" prefWidth="283.0" promptText="Nom" style="-fx-background-radius: 90;" />
+      <TextField fx:id="prenom" layoutX="164.0" layoutY="179.0" prefHeight="31.0" prefWidth="283.0" promptText="Prenom" style="-fx-background-radius: 90;" />
+      <TextField fx:id="Address" layoutX="164.0" layoutY="219.0" prefHeight="31.0" prefWidth="283.0" promptText="Address" style="-fx-background-radius: 90;" />
+      <TextField fx:id="email" layoutX="164.0" layoutY="313.0" prefHeight="31.0" prefWidth="283.0" promptText="Email" style="-fx-background-radius: 90;" />
+      <Button fx:id="cancel" layoutX="141.0" layoutY="468.0" mnemonicParsing="false" onAction="#Cancel" prefHeight="40.0" prefWidth="149.0" style="-fx-background-radius: 90; -fx-background-color: #9efd38;" text="Cancel">
+         <graphic>
+            <FontAwesomeIcon glyphName="BAN" />
+         </graphic>
+      </Button>
+      <Button fx:id="add" layoutX="345.0" layoutY="468.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="40.0" prefWidth="149.0" style="-fx-background-radius: 90; -fx-background-color: #9efd38;" text="Ajouter">
+         <graphic>
+            <FontAwesomeIcon glyphName="PLUS" />
+         </graphic>
+      </Button>
+      <Label layoutX="151.0" layoutY="52.0" text="Ajouter Un Client" textFill="#030000">
+         <font>
+            <Font name="Tahoma Bold" size="37.0" />
+         </font>
+      </Label>
+      <Label fx:id="message" layoutX="210.0" layoutY="387.0" prefHeight="62.0" prefWidth="271.0" textFill="#fcfcfc" />
+      <TextField fx:id="NumTel" layoutX="164.0" layoutY="267.0" prefHeight="31.0" prefWidth="283.0" promptText="Numero de Telephone" style="-fx-background-radius: 90;" />
+      <PasswordField fx:id="pass" layoutX="164.0" layoutY="363.0" prefHeight="31.0" prefWidth="283.0" promptText="Mot de Passe" style="-fx-background-radius: 90;" />
+   </children>
+</AnchorPane>

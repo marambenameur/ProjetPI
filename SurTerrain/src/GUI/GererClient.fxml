@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GererClientController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: white;">
+         <children>
+            <TextField fx:id="JrechercheC" layoutX="80.0" layoutY="125.0" prefHeight="31.0" prefWidth="283.0" promptText="Rechercher" style="-fx-background-radius: 90;" />
+            <FontAwesomeIcon fx:id="iconrechercheC" glyphName="SEARCH" layoutX="381.0" layoutY="149.0" size="1.5em" wrappingWidth="17.928571701049805" />
+            <Button fx:id="btajouterC" layoutX="450.0" layoutY="125.0" mnemonicParsing="false" onAction="#AddClient" prefHeight="31.0" prefWidth="106.0" style="-fx-background-color: WHITE; -fx-background-radius: 100; -fx-border-color: Green; -fx-border-radius: 100;" text="Ajouter">
+               <graphic>
+                  <FontAwesomeIcon glyphName="PLUS" />
+               </graphic>
+            </Button>
+            <Button fx:id="btmodifierC" layoutX="571.0" layoutY="124.0" mnemonicParsing="false" onAction="#EditClient" prefHeight="31.0" prefWidth="106.0" style="-fx-background-color: WHITE; -fx-background-radius: 100; -fx-border-radius: 100; -fx-border-color: Green;" text="Modifier">
+               <graphic>
+                  <FontAwesomeIcon glyphName="PENCIL" />
+               </graphic>
+            </Button>
+            <Button fx:id="btsupprimerC" layoutX="691.0" layoutY="124.0" mnemonicParsing="false" onAction="#DeleteClient" prefHeight="33.0" prefWidth="113.0" style="-fx-background-color: WHITE; -fx-background-radius: 100; -fx-border-color: Green; -fx-border-radius: 100;" text="Supprimer">
+               <graphic>
+                  <FontAwesomeIcon glyphName="TRASH" />
+               </graphic>
+            </Button>
+            <TableView fx:id="tvclient" layoutX="80.0" layoutY="176.0" prefHeight="368.0" prefWidth="750.0">
+               <columns>
+                  <TableColumn fx:id="nomC" prefWidth="147.0" text="Nom" />
+                  <TableColumn fx:id="prenomC" prefWidth="136.0" text="Prenom" />
+                  <TableColumn fx:id="addressC" prefWidth="147.0" text="Address" />
+                  <TableColumn fx:id="numtelC" prefWidth="136.0" text="Numreo de telephone" />
+                  <TableColumn fx:id="emailC" prefWidth="190.0" text="Email" />
+               </columns>
+            </TableView>
+            <Pane prefHeight="120.0" prefWidth="900.0" style="-fx-background-color: #ededed;">
+               <children>
+                  <Label layoutX="271.0" layoutY="30.0" prefHeight="60.0" prefWidth="358.0" text="Gerer Client">
+                     <font>
+                        <Font name="Gill Sans MT" size="50.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <FontAwesomeIcon fx:id="downLoadClient" fill="#1aff00" glyphName="DOWNLOAD" layoutX="854.0" layoutY="631.0" onMouseClicked="#telechargerClient" size="2em" />
+            <FontAwesomeIcon fx:id="refclient" fill="#00ff0d" glyphName="REFRESH" layoutX="853.0" layoutY="150.0" onMouseClicked="#UpdateClient" size="1.5em" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

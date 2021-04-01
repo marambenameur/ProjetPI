@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="399.0" prefWidth="518.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GestionguiController">
+   <children>
+      <Pane layoutY="-1.0" prefHeight="76.0" prefWidth="518.0" style="-fx-background-color: #ededed;" />
+      <Button fx:id="btncomp" defaultButton="true" layoutX="91.0" layoutY="296.0" mnemonicParsing="false" onAction="#Competitions" prefHeight="56.0" prefWidth="334.0" style="-fx-background-radius: 100; -fx-background-color: white; -fx-border-radius: 100; -fx-border-color: #3AF24B;" text="Competitions">
+         <font>
+            <Font name="Arial Bold" size="23.0" />
+         </font>
+      </Button>
+      <Label layoutX="114.0" layoutY="14.0" text="Services des clubs" textAlignment="CENTER">
+         <font>
+            <Font name="Gill Sans MT" size="40.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnjrs" defaultButton="true" layoutX="91.0" layoutY="102.0" mnemonicParsing="false" onAction="#ListeJoueurs" prefHeight="56.0" prefWidth="334.0" style="-fx-background-radius: 100; -fx-background-color: white; -fx-border-radius: 100; -fx-border-color: #3AF24B;" text="Joueurs">
+         <font>
+            <Font name="Arial Bold" size="23.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnclub" defaultButton="true" layoutX="91.0" layoutY="200.0" mnemonicParsing="false" onAction="#ListeClubs" prefHeight="56.0" prefWidth="334.0" style="-fx-background-radius: 100; -fx-background-color: white; -fx-border-radius: 100; -fx-border-color: #3AF24B;" text="Clubs">
+         <font>
+            <Font name="Arial Bold" size="23.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

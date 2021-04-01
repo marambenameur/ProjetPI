@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.SepiaTone?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AjouterJoueurController">
+   <children>
+      <AnchorPane id="AnchorPane" focusTraversable="true" nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="900.0">
+         <effect>
+            <ColorAdjust contrast="0.06" />
+         </effect>
+         <children>
+            <SplitPane orientation="VERTICAL" prefHeight="668.0" prefWidth="694.0">
+               <items>
+                  <AnchorPane prefHeight="644.0" prefWidth="915.0">
+                     <children>
+                        <AnchorPane layoutX="22.0" layoutY="442.0" minHeight="0.0" minWidth="0.0" pickOnBounds="false" prefHeight="226.0" prefWidth="873.0">
+                           <children>
+                              <Label layoutX="43.0" layoutY="32.0" text="Nom :">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="399.0" layoutY="34.0" text="Prenom :">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="43.0" layoutY="102.0" text="Age :">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="43.0" layoutY="163.0" text="Club :">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="nomj" layoutX="144.0" layoutY="32.0" prefHeight="31.0" prefWidth="220.0" promptText="Lastname" style="-fx-background-radius: 100; -fx-border-radius: 100;">
+                                 <effect>
+                                    <SepiaTone />
+                                 </effect>
+                              </TextField>
+                              <TextField fx:id="prenomj" layoutX="500.0" layoutY="34.0" prefHeight="31.0" prefWidth="220.0" promptText="Firstname" style="-fx-background-radius: 100; -fx-border-radius: 100;">
+                                 <effect>
+                                    <SepiaTone />
+                                 </effect>
+                              </TextField>
+                              <TextField fx:id="agej" layoutX="141.0" layoutY="102.0" prefHeight="31.0" prefWidth="220.0" promptText="Age" style="-fx-background-radius: 100; -fx-border-radius: 100;">
+                                 <effect>
+                                    <SepiaTone />
+                                 </effect>
+                              </TextField>
+                              <ComboBox fx:id="clubj" layoutX="142.0" layoutY="163.0" prefHeight="31.0" prefWidth="220.0" />
+                              <Label layoutX="399.0" layoutY="102.0" text="Email :">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="email" layoutX="497.0" layoutY="102.0" prefHeight="31.0" prefWidth="220.0" promptText="Email" style="-fx-background-radius: 100; -fx-border-radius: 100;">
+                                 <effect>
+                                    <SepiaTone />
+                                 </effect>
+                              </TextField>
+                           </children>
+                        </AnchorPane>
+                        <TextField fx:id="Txtid" layoutX="53.0" layoutY="130.0" onKeyPressed="#rech" prefHeight="32.0" prefWidth="200.0" promptText="Recherche joueurs" style="-fx-background-radius: 100; -fx-border-radius: 100;" />
+                        <Button fx:id="suppjr" alignment="TOP_CENTER" layoutX="752.0" layoutY="132.0" mnemonicParsing="false" onAction="#suppjrs" prefHeight="32.0" prefWidth="50.0" style="-fx-background-radius: 50; -fx-background-color: #FF0000;" textFill="WHITE">
+               <font>
+                  <Font name="Gill Sans MT Bold" size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="ajoutjr" alignment="TOP_CENTER" layoutX="638.0" layoutY="132.0" mnemonicParsing="false" onAction="#ajoutjrs" prefHeight="32.0" prefWidth="50.0" style="-fx-background-radius: 50; -fx-background-color: #3AF24B;" textFill="WHITE">
+               <font>
+                  <Font name="Gill Sans MT Bold" size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="rfr" alignment="TOP_CENTER" layoutX="813.0" layoutY="132.0" mnemonicParsing="false" onAction="#sendemail" prefHeight="32.0" prefWidth="50.0" style="-fx-background-radius: 100; -fx-background-color: #FF7F00;" textFill="WHITE">
+               <font>
+                  <Font name="Gill Sans MT Bold" size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="mdfjr" alignment="TOP_CENTER" layoutX="695.0" layoutY="132.0" mnemonicParsing="false" onAction="#mdfjrs" prefHeight="32.0" prefWidth="50.0" style="-fx-background-radius: 100; -fx-background-color: #FFCB60;" textFill="WHITE">
+               <font>
+                  <Font name="Gill Sans MT Bold" size="17.0" />
+               </font>
+            </Button>
+            <FontAwesomeIcon fill="#f8f4f4" glyphName="TRASH" layoutX="768.0" layoutY="155.0" size="1.5em" />
+            <FontAwesomeIcon fill="#f8f4f4" glyphName="PLUS" layoutX="654.0" layoutY="155.0" size="1.5em" text="" />
+            <FontAwesomeIcon fill="#f8f4f4" glyphName="REFRESH" layoutX="710.0" layoutY="155.0" size="1.5em" />
+            <FontAwesomeIcon fill="#f8f4f4" glyphName="ENVELOPE" layoutX="827.0" layoutY="155.0" size="1.5em" />
+                        <AnchorPane layoutX="8.0" layoutY="10.0" prefHeight="92.0" prefWidth="900.0" style="-fx-background-color: #EDEDED;">
+                           <children>
+                              <Text layoutX="266.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gérer les joueurs" wrappingWidth="367.40966796875">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="50.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <TableView fx:id="tvjrs" layoutX="53.0" layoutY="174.0" onMouseClicked="#getselectedd" prefHeight="270.0" prefWidth="810.0">
+                           <columns>
+                              <TableColumn fx:id="jnom" prefWidth="151.0" style="-fx-alignment: center;" text="Nom " />
+                              <TableColumn fx:id="jpren" prefWidth="152.0" style="-fx-alignment: center;" text="Prenom" />
+                              <TableColumn fx:id="jage" prefWidth="131.0" style="-fx-alignment: center;" text="Age" />
+                              <TableColumn fx:id="jemail" prefWidth="252.0" style="-fx-alignment: center;" text="email" />
+                              <TableColumn fx:id="jclub" prefWidth="123.0" style="-fx-alignment: center;" text="Club" />
+                           </columns>
+                        </TableView>
+                        <Separator layoutX="8.0" layoutY="101.0" prefHeight="0.0" prefWidth="900.0" />
+                     </children>
+                  </AnchorPane>
+               </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

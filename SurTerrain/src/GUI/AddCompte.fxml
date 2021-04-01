@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="654.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddCompteController">
+   <children>
+      <BorderPane layoutX="57.0" layoutY="33.0" opacity="0.73" prefHeight="500.0" prefWidth="506.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="57.0" AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="33.0">
+         <top>
+            <Label prefHeight="67.0" prefWidth="292.0" text="Creer Un Compte" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Book Antiqua" size="36.0" />
+               </font>
+            </Label>
+         </top>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField id="Jnom" fx:id="JNom" layoutX="120.0" layoutY="6.0" prefHeight="26.0" prefWidth="303.0" promptText="Nom" style="-fx-background-radius: 90;" />
+                  <TextField id="JPrenom" fx:id="Jprenom" layoutX="119.0" layoutY="43.0" prefHeight="26.0" prefWidth="304.0" promptText="Prenom" style="-fx-background-radius: 90;" />
+                  <TextField id="JAdresse" fx:id="JAdresse" layoutX="119.0" layoutY="83.0" prefHeight="26.0" prefWidth="305.0" promptText="Adresse" style="-fx-background-radius: 90;" />
+                  <TextField id="Jnum" fx:id="JNumTel" layoutX="119.0" layoutY="122.0" prefHeight="26.0" prefWidth="306.0" promptText="Numéro de Téléphone" style="-fx-background-radius: 90;" />
+                  <TextField id="JEmail" fx:id="JEmail" layoutX="120.0" layoutY="159.0" prefHeight="26.0" prefWidth="307.0" promptText="Email" style="-fx-background-radius: 90;" />
+                  <Button id="btcreer" fx:id="Creer" layoutX="287.0" layoutY="462.0" mnemonicParsing="false" onAction="#Add_Client" prefHeight="32.0" prefWidth="171.0" style="-fx-background-radius: 90; -fx-background-color: green;" text="Creer" textFill="#f7fcf8" />
+                  <Button id="btannuler" fx:id="annuler" layoutX="90.0" layoutY="461.0" mnemonicParsing="false" onAction="#Cancel" prefHeight="34.0" prefWidth="168.0" style="-fx-background-radius: 90; -fx-background-color: green;" text="Annuler" textFill="#f5f5f5" />
+                  <TextField fx:id="JCin" layoutX="123.0" layoutY="318.0" prefHeight="26.0" prefWidth="305.0" promptText="Cin" style="-fx-background-radius: 90;" visible="false" />
+                  <TextField fx:id="JNum_Terain" layoutX="121.0" layoutY="357.0" prefHeight="26.0" prefWidth="310.0" promptText="Nom de Terrain" style="-fx-background-radius: 90;" visible="false" />
+                  <Label fx:id="LabelforSorted" layoutX="151.0" layoutY="411.0" prefHeight="33.0" prefWidth="248.0" />
+                  <CheckBox fx:id="CheckClient" layoutX="162.0" layoutY="281.0" mnemonicParsing="false" onAction="#Selection" text="Client" />
+                  <CheckBox fx:id="ChekAdherant" layoutX="299.0" layoutY="280.0" mnemonicParsing="false" onAction="#Visible" text="Adhérant" />
+                  <PasswordField fx:id="Jmdp" layoutX="121.0" layoutY="197.0" prefHeight="31.0" prefWidth="308.0" promptText="Mot de passe" style="-fx-background-radius: 90;" />
+                  <PasswordField fx:id="Jmdp2" layoutX="120.0" layoutY="235.0" prefHeight="31.0" prefWidth="308.0" promptText="Confirmer Votre mot de passe" style="-fx-background-radius: 90;" />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <FontAwesomeIcon fill="#06ee30" glyphName="ARROW_LEFT" layoutX="54.0" layoutY="51.0" onMouseClicked="#back" size="1.5em" />
+         </children></AnchorPane>
+   </children>
+</AnchorPane>
