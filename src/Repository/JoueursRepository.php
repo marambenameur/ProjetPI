@@ -18,7 +18,13 @@ class JoueursRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Joueurs::class);
     }
-
+    public function sortByName()
+    {
+        $joueur = $this->createQueryBuilder(j)
+            ->orderBy('j.age', 'ASC');
+        $query = $joueur->getQuery();
+        return $query->execute();
+    }
     // /**
     //  * @return Joueurs[] Returns an array of Joueurs objects
     //  */

@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use MercurySeries\FlashyBundle\FlashyNotifier;
 
 /**
  * @Route("/club")
@@ -28,7 +29,7 @@ class ClubController extends AbstractController
     /**
      * @Route("/new", name="club_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, FlashyNotifier $flashy): Response
     {
         $club = new Club();
         $form = $this->createForm(ClubType::class, $club);
@@ -38,7 +39,7 @@ class ClubController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($club);
             $entityManager->flush();
-
+            $flashy->message('Club Ajouter!');
             return $this->redirectToRoute('club_index');
         }
 
@@ -61,14 +62,14 @@ class ClubController extends AbstractController
     /**
      * @Route("/{idClub}/edit", name="club_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Club $club): Response
+    public function edit(Request $request, Club $club,FlashyNotifier $flashy): Response
     {
         $form = $this->createForm(ClubType::class, $club);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $flashy->info('Club Modifier!');
             return $this->redirectToRoute('club_index');
         }
 
@@ -81,12 +82,13 @@ class ClubController extends AbstractController
     /**
      * @Route("/{idClub}", name="club_delete", methods={"POST"})
      */
-    public function delete(Request $request, Club $club): Response
+    public function delete(Request $request, Club $club, FlashyNotifier $flashy): Response
     {
         if ($this->isCsrfTokenValid('delete'.$club->getIdClub(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($club);
             $entityManager->flush();
+            $flashy->error('Club Supprimer!');
         }
 
         return $this->redirectToRoute('club_index');

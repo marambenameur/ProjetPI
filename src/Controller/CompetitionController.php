@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Competition;
 use App\Form\CompetitionType;
 use App\Repository\CompetitionRepository;
+use MercurySeries\FlashyBundle\FlashyNotifier;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,7 +29,7 @@ class CompetitionController extends AbstractController
     /**
      * @Route("/new", name="competition_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, FlashyNotifier $flashy): Response
     {
         $competition = new Competition();
         $form = $this->createForm(CompetitionType::class, $competition);
@@ -38,7 +39,7 @@ class CompetitionController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($competition);
             $entityManager->flush();
-
+            $flashy->success('Competition Ajouter!');
             return $this->redirectToRoute('competition_index');
         }
 
@@ -61,14 +62,14 @@ class CompetitionController extends AbstractController
     /**
      * @Route("/{idCompetition}/edit", name="competition_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Competition $competition): Response
+    public function edit(Request $request, Competition $competition, FlashyNotifier $flashy): Response
     {
         $form = $this->createForm(CompetitionType::class, $competition);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $flashy->info('Competition modifier!');
             return $this->redirectToRoute('competition_index');
         }
 
@@ -81,12 +82,13 @@ class CompetitionController extends AbstractController
     /**
      * @Route("/{idCompetition}", name="competition_delete", methods={"POST"})
      */
-    public function delete(Request $request, Competition $competition): Response
+    public function delete(Request $request, Competition $competition, FlashyNotifier $flashy): Response
     {
         if ($this->isCsrfTokenValid('delete'.$competition->getIdCompetition(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($competition);
             $entityManager->flush();
+            $flashy->error('Competition Supprimer!');
         }
 
         return $this->redirectToRoute('competition_index');

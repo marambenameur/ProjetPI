@@ -42,6 +42,7 @@ class Competition
      * @Assert\NotBlank(
      * message = "remplissez le champ SVP"
      * )
+     * @Assert\GreaterThan("today UTC")
      */
     private $dateDebut;
 
